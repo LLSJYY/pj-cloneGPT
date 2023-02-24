@@ -1,17 +1,17 @@
 .button {
   font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 700;
+  border-radius: 2rem;
   border: 0;
-  border-radius: 3em;
   cursor: pointer;
   display: inline-block;
   line-height: 1;
-  color: white;
-  background-color: #1ea7fd;
+  color: black;
   font-size: 14px;
   padding: 11px 20px;
+  background-color: #fff;
 }
 
 .button:hover {
-  text-decoration: underline;
+  background-color: rgb(223, 221, 221);
 }

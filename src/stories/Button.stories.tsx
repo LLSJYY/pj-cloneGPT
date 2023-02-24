@@ -1,5 +1,5 @@
 import React from "react";
-import plane from "../asset/search-plane.svg";
+import plane from "../asset/search-plane2.svg";
 import { Button } from "./Button";
 import Image from "next/image";
 
