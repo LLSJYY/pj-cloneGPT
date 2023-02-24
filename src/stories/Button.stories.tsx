@@ -1,6 +1,7 @@
 import React from "react";
-
+import plane from "../asset/search-plane.svg";
 import { Button } from "./Button";
+import Image from "next/image";
 
 export default {
   title: "Example/Button",
@@ -17,7 +18,9 @@ Hover.parameters = { pseudo: { hover: true } };
 export const DirectSelector = () => (
   <>
     <div className="story-grid">
-      <Button>Normal</Button>
+      <Button>
+        <Image alt="search-plane" width={50} height={50} src={plane} />
+      </Button>
       <Button data-hover>Hover</Button>
     </div>
     <h3>Multiple hovered button grouped</h3>
