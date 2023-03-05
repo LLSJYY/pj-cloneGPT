@@ -26,6 +26,9 @@ const Button = styled.button`
   }
 `;
 
+const Span = styled.span`
+  width: 50px;
+`;
 const SearchButton = ({ width = 50, height = 50, src = "/" }: IProps) => {
   const count = useCounters({ initialCount: 0, step: 1 });
   const [dots, setDots] = useState("");
@@ -38,7 +41,7 @@ const SearchButton = ({ width = 50, height = 50, src = "/" }: IProps) => {
   return (
     <Button>
       {loading ? (
-        <span>{dots}</span>
+        <Span>{dots}</Span>
       ) : (
         <Image alt="plane" width={width} height={height} src={src} />
       )}

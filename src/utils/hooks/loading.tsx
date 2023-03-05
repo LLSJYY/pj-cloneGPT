@@ -12,7 +12,7 @@ export const useCounters = ({ initialCount, step = 1 }: IProps) => {
       setCount((prevCount) =>
         prevCount < 3 ? prevCount + step : initialCount
       );
-    }, 1000);
+    }, 500);
     return () => clearInterval(interval);
   }, [count]);
   return count;
