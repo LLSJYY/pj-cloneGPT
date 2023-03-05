@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { SearchBarInput } from "./SearchBarStyle";
 
 const SearchBar = () => {

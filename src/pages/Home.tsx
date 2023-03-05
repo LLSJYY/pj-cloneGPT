@@ -1,10 +1,6 @@
-import SearchButton from "@/component/home/SearchButton";
+import { HomePage } from "@/component/home";
 const Home = () => {
-  return (
-    <>
-      <SearchButton src="/" />
-    </>
-  );
+  return <HomePage />;
 };
 
 export default Home;

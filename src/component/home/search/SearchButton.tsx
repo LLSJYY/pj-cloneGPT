@@ -1,7 +1,7 @@
-import plane from "../../asset/search-plane2.svg";
-
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import styled from "styled-components";
+import { useCounters } from "@/utils/hooks/loading";
 interface IProps {
   width?: number;
   height?: number;
@@ -27,9 +27,21 @@ const Button = styled.button`
 `;
 
 const SearchButton = ({ width = 50, height = 50, src = "/" }: IProps) => {
+  const count = useCounters({ initialCount: 0, step: 1 });
+  const [dots, setDots] = useState("");
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setDots((prevDots) => (count < 2 ? prevDots + "." : "."));
+  }, [count]);
+
   return (
     <Button>
-      <Image alt="plane" width={width} height={height} src={src} />
+      {loading ? (
+        <span>{dots}</span>
+      ) : (
+        <Image alt="plane" width={width} height={height} src={src} />
+      )}
     </Button>
   );
 };

@@ -1,25 +1,21 @@
 import React from "react";
+import { Wrapper } from "./SearchBarStyle";
+import { Meta, Story } from "@storybook/react";
 import SearchBar from "./SearchBar";
-import Image from "next/image";
-
-type TPlane = {
-  plane1: SVGElement;
-  plane2: SVGElement;
-};
+type WrapperProps = React.ComponentProps<typeof Wrapper>;
 
 /**/
-interface IProps<T> {
-  width?: number;
-  height?: number;
-  src?: T;
-}
 
 export default {
   title: "Search/SearchBar",
-  component: SearchBar,
-};
+  component: Wrapper,
+} as Meta<WrapperProps>;
 
-const Template = (args: any) => <SearchBar {...args}></SearchBar>;
+const Template = (args: any) => (
+  <Wrapper {...args}>
+    <SearchBar />
+  </Wrapper>
+);
 
 export const Default: any = Template.bind({});
 export const Hover: any = Template.bind({});
