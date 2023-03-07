@@ -11,6 +11,7 @@ interface IModel {
 
 interface IProps {
   status: "Idle" | "isLoading" | "Success" | "isError";
+  display: "none" | "flex";
 }
 const SearchBar = ({ status }: IProps) => {
   return (

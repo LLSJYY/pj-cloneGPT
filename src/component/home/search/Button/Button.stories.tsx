@@ -32,6 +32,7 @@ export default {
         options: [plane1, plane2],
       },
     },
+    borderRadius: { control: { type: "range", min: 1, max: 30, step: 3 } },
   },
 } as Meta<SearchButtonProps>;
 
@@ -43,12 +44,10 @@ export const Idle = Template.bind({});
 Idle.args = {
   src: plane1,
   status: "Idle",
-  backgroundColor: "#fff",
-  backgroundColorHover: "skyblue",
 };
 
 export const Loading = Template.bind({});
-Loading.args = { status: "Loading", backgroundColor: "#fff" };
+Loading.args = { status: "Loading" };
 
 export const DirectSelector = () => (
   <>
