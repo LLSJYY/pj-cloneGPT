@@ -1,23 +1,25 @@
-// import React from "react";
-// import { Wrapper } from "./Input";
-// import { Meta, Story } from "@storybook/react";
-// import SearchBar from "./Bar";
-// type WrapperProps = React.ComponentProps<typeof Wrapper>;
+import React from "react";
+import { Meta, Story } from "@storybook/react";
+import SearchBar from "./Bar";
+type SearchBarProps = React.ComponentProps<typeof SearchBar>;
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+const queryClient = new QueryClient();
 
-// /**/
+export default {
+  title: "Search/Bar",
+  component: SearchBar,
+  decorators: [
+    (Story: Story) => (
+      <QueryClientProvider client={queryClient}>
+        <Story />
+      </QueryClientProvider>
+    ),
+  ],
+} as Meta<SearchBarProps>;
 
-// export default {
-//   title: "Search/SearchBar",
-//   component: Wrapper,
-// } as Meta<WrapperProps>;
+const Template = (args: any) => <SearchBar {...args}></SearchBar>;
 
-// const Template = (args: any) => (
-//   <Wrapper {...args}>
-//     <SearchBar />
-//   </Wrapper>
-// );
-
-// export const Default: any = Template.bind({});
+export const Default: any = Template.bind({});
 // export const Hover: any = Template.bind({});
 // Hover.parameters = { pseudo: { hover: true } };
 
@@ -34,5 +36,3 @@
 //     hover: ["[data-hover]"],
 //   },
 // };
-
-export {};

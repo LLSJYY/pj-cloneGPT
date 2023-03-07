@@ -22,8 +22,14 @@ export default {
   argTypes: {
     status: {
       control: {
-        type: "select", // use select control type
-        options: ["Idle", "Loading", "Pending", "Success", "Error"], // add dropdown options for status
+        type: "select",
+        options: ["Idle", "Loading", "Success", "Error"],
+      },
+    },
+    src: {
+      control: {
+        type: "select",
+        options: [plane1, plane2],
       },
     },
   },
@@ -34,10 +40,15 @@ const Template: Story<SearchButtonProps & { src: TPlane }> = (args) => {
 };
 
 export const Idle = Template.bind({});
-Idle.args = { status: "Idle", backgroundColor: "#fff" };
+Idle.args = {
+  src: plane1,
+  status: "Idle",
+  backgroundColor: "#fff",
+  backgroundColorHover: "skyblue",
+};
 
 export const Loading = Template.bind({});
-Loading.args = { status: "Loading" };
+Loading.args = { status: "Loading", backgroundColor: "#fff" };
 
 export const DirectSelector = () => (
   <>
