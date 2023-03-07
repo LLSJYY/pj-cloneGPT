@@ -15,11 +15,26 @@ export default {
       </QueryClientProvider>
     ),
   ],
+  argTypes: {
+    status: {
+      control: {
+        type: "select",
+        options: ["Idle", "isLoading", "Success", "isError"],
+      },
+    },
+    display: {
+      control: {
+        type: "select",
+        options: ["none", "flex"],
+      },
+    },
+  },
 } as Meta<SearchBarProps>;
 
 const Template = (args: any) => <SearchBar {...args}></SearchBar>;
 
 export const Default: any = Template.bind({});
+Default.args = { status: "Idle", display: "flex" };
 // export const Hover: any = Template.bind({});
 // Hover.parameters = { pseudo: { hover: true } };
 

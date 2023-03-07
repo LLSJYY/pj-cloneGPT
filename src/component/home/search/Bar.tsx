@@ -14,7 +14,7 @@ interface IProps {
 }
 const SearchBar = ({ status }: IProps) => {
   return (
-    <Wrapper>
+    <Wrapper display={status === "isError" ? "none" : "flex"}>
       <Input />
     </Wrapper>
   );
