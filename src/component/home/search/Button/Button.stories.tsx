@@ -12,24 +12,32 @@ type TPlane = {
 };
 
 interface IProps {
-  width?: number;
-  height?: number;
+  status: "Idle" | "Loading" | "Success" | "Error";
   src?: any;
 }
 
 export default {
   title: "Search/Button",
   component: SearchButton,
+  argTypes: {
+    status: {
+      control: {
+        type: "select", // use select control type
+        options: ["Idle", "Loading", "Pending", "Success", "Error"], // add dropdown options for status
+      },
+    },
+  },
 } as Meta<SearchButtonProps>;
 
-// const Template: Story<SearchButtonProps & { src: TPlane }> = (args) => {
-//   return <SearchButton {...args}></SearchButton>;
-// };
+const Template: Story<SearchButtonProps & { src: TPlane }> = (args) => {
+  return <SearchButton {...args}></SearchButton>;
+};
 
-// export const Primary: any = Template.bind({});
-// Primary.args = { src: plane1 };
-// export const Secondary: any = Template.bind({});
-// Secondary.args = { src: plane2, pseudo: { hover: true } };
+export const Idle = Template.bind({});
+Idle.args = { status: "Idle", backgroundColor: "#fff" };
+
+export const Loading = Template.bind({});
+Loading.args = { status: "Loading" };
 
 export const DirectSelector = () => (
   <>
