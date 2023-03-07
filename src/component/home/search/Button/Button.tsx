@@ -3,6 +3,7 @@ import Image from "next/image";
 import styled from "styled-components";
 import { Button } from "./Button.styles";
 import { useCounters } from "@/utils/hooks/loading";
+import plane1 from "@/asset/search-plane.svg";
 interface IProps {
   width?: number;
   height?: number;
@@ -27,6 +28,7 @@ const SearchButton = ({ width = 50, height = 50, src = "/" }: IProps) => {
       backgroundColorHover="skyblue"
       borderRadius="2rem"
     >
+      <Image src={plane1} alt="plane"></Image>
       {/* {loading ? (
         <Span>{dots}</Span>
       ) : (

@@ -1,6 +1,6 @@
 import React from "react";
-import plane1 from "../../../../asset/search-plane.svg";
-import plane2 from "../../../../asset/search-plane2.svg";
+import plane1 from "@/asset/search-plane.svg";
+import plane2 from "@/asset/search-plane2.svg";
 import SearchButton from "./Button";
 import { Meta, Story } from "@storybook/react";
 
@@ -18,7 +18,7 @@ interface IProps {
 }
 
 export default {
-  title: "Search/SearchButton",
+  title: "Search/Button",
   component: SearchButton,
 } as Meta<SearchButtonProps>;
 
