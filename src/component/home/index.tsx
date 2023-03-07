@@ -1,13 +1,15 @@
-import SearchBar from "./search/SearchBar";
-import SearchButton from "./search/SearchButton";
-import { Wrapper } from "./search/SearchBarStyle";
-import { chatBot } from "@/api/chatbot";
-export const HomePage = () => {
-  const res = chatBot("hello");
-  return (
-    <Wrapper>
-      <SearchBar />
-      <SearchButton src={""} />
-    </Wrapper>
-  );
-};
+// import SearchBar from "./search/Bar";
+// import SearchButton from "./search/Button";
+// import { Wrapper } from "./search/Input";
+// import { chatBot } from "@/api/chatbot";
+// export const HomePage = () => {
+//   const res = chatBot("hello");
+//   return (
+//     <Wrapper>
+//       <SearchBar />
+//       <SearchButton src={""} />
+//     </Wrapper>
+//   );
+// };
+
+export {};

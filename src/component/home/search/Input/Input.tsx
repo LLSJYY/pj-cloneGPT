@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const SearchBarInput = styled.input`
+export const Input = styled.input`
   border: none;
   background-color: #fff;
   width: 80%;

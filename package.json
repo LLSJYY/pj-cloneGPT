@@ -10,6 +10,9 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
+  "overrides": {
+    "enhanced-resolve": "5.10.0"
+  },
   "dependencies": {
     "@notionhq/client": "^2.2.3",
     "@tanstack/react-query": "^4.26.0",
@@ -44,6 +47,7 @@
     "babel-loader": "^8.3.0",
     "eslint-plugin-storybook": "^0.6.11",
     "storybook-addon-pseudo-states": "^1.15.2",
-    "ts-loader": "^9.4.2"
+    "ts-loader": "^9.4.2",
+    "tsconfig-paths-webpack-plugin": "^4.0.0"
   }
 }
