@@ -17,31 +17,31 @@ const Home = () => {
   const [isDataReceived, setIsDataReceived] = useState(false);
   const [status, setStatus] = useState<TStatus>("Idle");
 
-  const { data, isLoading, isError } = useQuery<IGetAnswer>(
-    ["chatbot"],
-    () => chatBot("hello"), // Toto : search input data
-    { enabled: true }
-  );
+  // const { data, isLoading, isError } = useQuery<IGetAnswer>(
+  //   ["chatbot"],
+  //   () => chatBot("hello"), // Toto : search input data
+  //   { enabled: true }
+  // );
 
-  useEffect(() => {
-    if (isLoading) {
-      setStatus("isLoading");
-    }
-    if (isError) {
-      setStatus("isError");
-    }
-    if (data) {
-      setIsDataReceived(true);
-      setStatus("Success");
-    }
-  }, [data, isLoading, isError]);
+  // useEffect(() => {
+  //   if (isLoading) {
+  //     setStatus("isLoading");
+  //   }
+  //   if (isError) {
+  //     setStatus("isError");
+  //   }
+  //   if (data) {
+  //     setIsDataReceived(true);
+  //     setStatus("Success");
+  //   }
+  // }, [data, isLoading, isError]);
 
   console.log(status, isDataReceived);
-  if (data) {
-  }
+  // if (data) {
+  // }
 
-  if (isLoading) {
-  }
+  // if (isLoading) {
+  // }
   return <SearchBar status={status} />;
 };
 
