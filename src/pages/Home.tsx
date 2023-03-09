@@ -3,7 +3,9 @@ import { useQuery } from "@tanstack/react-query";
 import { chatBot } from "@/api/chatbot";
 import { useEffect, useState } from "react";
 interface IGetAnswer {
-  results: IModel[];
+  queryKey: Array<string>;
+  queryFn: IModel[];
+  enabled: boolean;
 }
 
 interface IModel {
@@ -15,9 +17,12 @@ const Home = () => {
   const [isDataReceived, setIsDataReceived] = useState(false);
   const [status, setStatus] = useState<TStatus>("Idle");
 
-  const { data, isLoading, isError } = useQuery<IGetAnswer>(["chatbot"], () =>
-    chatBot("can you explain gitflow sys? and translate korean")
+  const { data, isLoading, isError } = useQuery<IGetAnswer>(
+    ["chatbot"],
+    () => chatBot("hello"), // Toto : search input data
+    { enabled: true }
   );
+
   useEffect(() => {
     if (isLoading) {
       setStatus("isLoading");
