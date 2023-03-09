@@ -4,16 +4,22 @@ import styled from "styled-components";
 import { Button } from "./Button.styles";
 import { useCounters } from "@/utils/hooks/loading";
 import plane1 from "@/asset/search-plane.svg";
-interface IProps {
+interface IProps<T> {
   status: "Idle" | "isLoading" | "Success" | "isError";
-  newImageSrc?: string;
+  imageStyle?: T;
+}
+interface IImageStyle {
+  width?: number;
+  height?: number;
+  src?: string;
 }
 
 const Span = styled.span`
   width: 50px;
 `;
-const SearchButton = ({ status = "Idle", newImageSrc }: IProps) => {
-  const imageSrc = newImageSrc || plane1;
+
+const SearchButton = ({ status = "Idle", imageStyle }: IProps<IImageStyle>) => {
+  const imageSrc = imageStyle?.src ?? plane1;
 
   const count = useCounters({ initialCount: 0, step: 1 });
   const [dots, setDots] = useState("");
