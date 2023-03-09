@@ -17,22 +17,26 @@ const SearchButton = ({ status = "Idle", newImageSrc }: IProps) => {
 
   const count = useCounters({ initialCount: 0, step: 1 });
   const [dots, setDots] = useState("");
+
   useEffect(() => {
-    console.log(status);
-    if (status === "isLoading") {
-      setDots((prevDots) => (count < 2 ? prevDots + "." : "."));
-    }
+    setDots((prevDots) => (count < 2 ? prevDots + "." : "."));
   }, [status === "isLoading" && count]);
 
-  return (
-    <Button>
-      {status === "isLoading" ? (
-        <Span>{dots}</Span>
-      ) : (
+  if (status === "Success") {
+    return (
+      <Button>
         <Image alt="plane" width="50" height="50" src={imageSrc} />
-      )}
-    </Button>
-  );
+      </Button>
+    );
+  }
+
+  if (status === "isLoading") {
+    return (
+      <Button>
+        <Span>{dots}</Span>
+      </Button>
+    );
+  }
 };
 
 export default SearchButton;
