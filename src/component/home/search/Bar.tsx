@@ -1,22 +1,15 @@
 import { Input, Wrapper } from "./Input/Input";
-import { useQuery } from "@tanstack/react-query";
-import { chatBot } from "@/api/chatbot";
-interface IGetAnswer {
-  results: IModel[];
-}
-
-interface IModel {
-  data: string;
-}
+import SearchButton from "./Button/Button";
 
 interface IProps {
   status: "Idle" | "isLoading" | "Success" | "isError";
-  display: "none" | "flex";
 }
-const SearchBar = ({ status }: IProps) => {
+const SearchBar = (props: IProps) => {
+  const { status } = props;
   return (
     <Wrapper display={status === "isError" ? "none" : "flex"}>
       <Input />
+      <SearchButton {...props} />
     </Wrapper>
   );
 };

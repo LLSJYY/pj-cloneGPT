@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 interface IButtonProps {
-  borderRadius: string;
-  backgroundColor: string;
-  backgroundColorHover: string;
+  borderRadius?: string;
+  backgroundColor?: string;
+  backgroundColorHover?: string;
 }
 
 /* 초기값
@@ -15,7 +15,7 @@ backgroundColorHover : skyblue
 export const Button = styled.button<IButtonProps>`
   font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 700;
-  border-radius: ${(props) => props.borderRadius};
+  border-radius: ${(props) => props.borderRadius || 2}rem;
   border: 0;
   cursor: pointer;
   display: inline-block;
@@ -23,9 +23,9 @@ export const Button = styled.button<IButtonProps>`
   color: black;
   font-size: 14px;
   padding: 11px 20px;
-  background-color: ${(props) => props.backgroundColor};
+  background-color: ${(props) => props.backgroundColor || "#fff"};
   &:hover {
-    background-color: ${(props) => props.backgroundColorHover};
+    background-color: ${(props) => props.backgroundColorHover || "skyblue"};
     color: blue;
   }
 `;

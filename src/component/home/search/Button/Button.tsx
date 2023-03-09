@@ -5,33 +5,31 @@ import { Button } from "./Button.styles";
 import { useCounters } from "@/utils/hooks/loading";
 import plane1 from "@/asset/search-plane.svg";
 interface IProps {
-  status: "Idle" | "Loading" | "Success" | "Error";
+  status: "Idle" | "isLoading" | "Success" | "isError";
+  newImageSrc?: string;
 }
-const backgroundColor = "#fff";
-const backgroundColorHover = "skyblue";
-const borderRadius = "2rem";
 
 const Span = styled.span`
   width: 50px;
 `;
-const SearchButton = ({ status = "Idle" }: IProps) => {
+const SearchButton = ({ status = "Idle", newImageSrc }: IProps) => {
+  const imageSrc = newImageSrc || plane1;
+
   const count = useCounters({ initialCount: 0, step: 1 });
   const [dots, setDots] = useState("");
-
   useEffect(() => {
-    setDots((prevDots) => (count < 2 ? prevDots + "." : "."));
-  }, [count]);
+    console.log(status);
+    if (status === "isLoading") {
+      setDots((prevDots) => (count < 2 ? prevDots + "." : "."));
+    }
+  }, [status === "isLoading" && count]);
 
   return (
-    <Button
-      backgroundColor={backgroundColor}
-      backgroundColorHover={backgroundColorHover}
-      borderRadius={borderRadius}
-    >
-      {status === "Loading" ? (
+    <Button>
+      {status === "isLoading" ? (
         <Span>{dots}</Span>
       ) : (
-        <Image alt="plane" width="50" height="50" src={plane1} />
+        <Image alt="plane" width="50" height="50" src={imageSrc} />
       )}
     </Button>
   );
