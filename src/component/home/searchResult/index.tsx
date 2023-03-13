@@ -1,0 +1,17 @@
+import { resultStore } from "@/lib/resultStore";
+import { useRecoilValue } from "recoil";
+import NewSearch from "./NewSearch";
+interface IProps {
+  result: any[];
+}
+
+const Result = (props: any) => {
+  const result = useRecoilValue(resultStore);
+  const category = ["Example", "Capabilities", "Limitations"];
+  if (result.length === 0) {
+    return <NewSearch {...props} category={category} />;
+  }
+  return <>{result}</>;
+};
+
+export default Result;

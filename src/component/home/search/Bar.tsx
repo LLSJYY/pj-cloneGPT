@@ -2,21 +2,22 @@ import { Input, Wrapper } from "./Input/Input";
 import { useRef, useState, useEffect } from "react";
 import { chatBot } from "@/api/chatbot";
 import { useApi } from "@/utils/hooks/useApi";
+import { useRecoilState } from "recoil";
 import MemoizedSearchButton from "./Button/Button";
+import { resultStore } from "@/lib/resultStore";
 interface IProps {
   status: "Idle" | "isLoading" | "Success" | "isError";
   onClickHandler: (e: any) => void;
 }
 
 const SearchBar = (props: any) => {
-  const { status } = props;
   const [isClicked, setIsClicked] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const fetchChatBot = async () => {
     const res = chatBot(inputRef?.current?.value as string);
     return res;
   };
-
+  const [result, setResult] = useRecoilState<string[]>(resultStore);
   const { isError, isSuccess, isLoading, data } = useApi<string>(
     fetchChatBot,
     isClicked
@@ -27,12 +28,14 @@ const SearchBar = (props: any) => {
   useEffect(() => {
     if (!isLoading) {
       setIsClicked(false);
+      if (isSuccess) {
+        setResult((prev) => [...prev, data as string]);
+      }
+      if (isError) {
+        console.log("Error");
+      }
     }
-  }, [isLoading]);
-
-  if (isError) {
-    return <>something Wrong</>;
-  }
+  }, [isLoading]); //Todo 분기처리
 
   return (
     <Wrapper>
