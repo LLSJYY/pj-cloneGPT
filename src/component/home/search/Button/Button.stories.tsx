@@ -3,7 +3,7 @@ import plane1 from "@/asset/search-plane.svg";
 import plane2 from "@/asset/search-plane2.svg";
 import SearchButton from "./Button";
 import { Meta, Story } from "@storybook/react";
-import { Button } from "./Button.styles";
+
 type SearchButtonProps = React.ComponentProps<typeof SearchButton>;
 
 export default {
@@ -16,10 +16,9 @@ export default {
         options: ["Idle", "isLoading", "Success", "isError"],
       },
     },
-    newImageSrc: {
+    imageStyle: {
       control: {
-        type: "select",
-        options: [plane1, plane2],
+        type: "object",
       },
     },
     borderRadius: { control: { type: "range", min: 1, max: 30, step: 3 } },
@@ -27,18 +26,30 @@ export default {
   backgrounds: {},
 } as Meta<SearchButtonProps>;
 
-const Template: Story<SearchButtonProps> = (args) => <SearchButton {...args} />;
-export const Idle = Template.bind({});
-Idle.args = {
-  status: "Idle",
+const Template: Story<SearchButtonProps> = (args) => {
+  console.log(args);
+  return <SearchButton {...args} />;
 };
-
-export const Loading = Template.bind({});
-Loading.args = { status: "isLoading" };
+export const Default = Template.bind({});
+Default.args = {
+  status: "Idle",
+  imageStyle: {
+    width: 50,
+    height: 50,
+    src: plane2,
+    borderRadius: 2,
+  },
+};
 
 export const DirectSelector = () => (
   <>
-    <div className="story-grid"></div>
+    <div className="story-grid">
+      <>
+        <Template status="Idle" />
+        <Template status="isLoading" />
+        <Template status="isError" />
+      </>
+    </div>
   </>
 );
 

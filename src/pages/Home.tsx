@@ -1,7 +1,7 @@
 import SearchBar from "@/component/home/search/Bar";
-import { useQuery } from "@tanstack/react-query";
 import { chatBot } from "@/api/chatbot";
 import { useEffect, useState } from "react";
+import { useApi } from "@/utils/hooks/useApi";
 interface IGetAnswer {
   queryKey: Array<string>;
   queryFn: IModel[];
@@ -11,38 +11,21 @@ interface IGetAnswer {
 interface IModel {
   data: string;
 }
-type TStatus = "Idle" | "isLoading" | "isError" | "Success";
-
+interface IStatus {
+  process: "Idle" | "isLoading" | "isError" | "Success";
+  queryId: number;
+  clicked?: boolean;
+}
 const Home = () => {
-  const [isDataReceived, setIsDataReceived] = useState(false);
-  const [status, setStatus] = useState<TStatus>("Idle");
+  const [status, setStatus] = useState<Array<IStatus>>([
+    {
+      process: "Idle",
+      queryId: 0,
+      clicked: false,
+    },
+  ]);
 
-  const { data, isLoading, isError } = useQuery<IGetAnswer>(
-    ["chatbot"],
-    () => chatBot("hello"), // Toto : search input data
-    { enabled: true }
-  );
-
-  useEffect(() => {
-    if (isLoading) {
-      setStatus("isLoading");
-    }
-    if (isError) {
-      setStatus("isError");
-    }
-    if (data) {
-      setIsDataReceived(true);
-      setStatus("Success");
-    }
-  }, [data, isLoading, isError]);
-
-  console.log(status, isDataReceived);
-  if (data) {
-  }
-
-  if (isLoading) {
-  }
-  return <SearchBar status={status} />;
+  return <SearchBar />;
 };
 
 export default Home;
