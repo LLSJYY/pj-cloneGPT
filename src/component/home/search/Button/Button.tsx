@@ -1,12 +1,13 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, RefObject } from "react";
 import Image from "next/image";
 import styled from "styled-components";
 import { Button } from "./Button.styles";
-import { useCounters } from "@/utils/hooks/loading";
 import plane2 from "@/asset/search-plane2.svg";
 interface IProps<T> {
-  status: "Idle" | "isLoading" | "Success" | "isError";
+  status: "Idle" | "isLoading" | "isSuccess" | "isError";
+  onClickHandler: (e: any) => void;
   imageStyle?: T;
+  inputRef: RefObject<HTMLInputElement>;
 }
 interface IImageStyle {
   width?: number;
@@ -18,19 +19,27 @@ interface IImageStyle {
 const Span = styled.span`
   width: 50px;
 `;
-const SearchButton = ({ status = "Idle", imageStyle }: IProps<IImageStyle>) => {
+const SearchButton = (props: IProps<IImageStyle>) => {
+  const { status, imageStyle, onClickHandler, inputRef } = props;
   const imageSrc = imageStyle?.src ?? plane2;
+  const [dot, setDot] = useState<string>("");
   console.log(status);
-  const count = useCounters({ initialCount: 0, step: 1 });
-  const [dots, setDots] = useState("");
-
+  console.log("button");
   useEffect(() => {
-    setDots((prevDots) => (count < 2 ? prevDots + "." : "."));
-  }, [status === "isLoading" && count]);
+    if (status === "isLoading") {
+      const intervalId = setInterval(() => {
+        setDot((prevDot) => (prevDot.length < 3 ? dot + "." : "."));
+      }, 500);
 
-  if (status === "Success" || status === "Idle") {
+      return () => {
+        clearInterval(intervalId);
+      };
+    }
+  }, [status, dot]);
+
+  if (status === "isSuccess" || status === "Idle") {
     return (
-      <Button>
+      <Button onClick={() => onClickHandler(inputRef?.current?.value)}>
         <Image
           alt="plane"
           width={imageStyle?.width || 25}
@@ -44,7 +53,7 @@ const SearchButton = ({ status = "Idle", imageStyle }: IProps<IImageStyle>) => {
   if (status === "isLoading") {
     return (
       <Button>
-        <Span>{dots}</Span>
+        <span>{dot}</span>
       </Button>
     );
   }
@@ -55,5 +64,6 @@ const SearchButton = ({ status = "Idle", imageStyle }: IProps<IImageStyle>) => {
     </Button>
   );
 };
+const MemoizedSearchButton = React.memo(SearchButton);
 
-export default SearchButton;
+export default MemoizedSearchButton;

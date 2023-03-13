@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export const chatBot = async (data: string) => {
+  debugger;
   const res = await axios.post(
     "https://api.openai.com/v1/completions",
     {
