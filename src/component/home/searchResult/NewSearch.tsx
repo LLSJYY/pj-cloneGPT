@@ -6,8 +6,8 @@ import {
   ItemButton,
   ChatGPT,
 } from "./NewSearch.styles";
-interface IProps {
-  storybookProps: any;
+interface IProps<T> {
+  storybookProps: T;
 }
 interface IMockData<T> {
   categories: string[];
@@ -27,9 +27,9 @@ const mockData: IMockData<ICategoiesData> = {
 };
 import { EXAMPLES, CAPABILITIES, LIMITATIONS } from "@/constant/indexPage";
 
-const NewSearch = (props: IProps) => {
+const NewSearch = (props: IProps<IMockData<ICategoiesData>>) => {
   const { storybookProps = mockData } = props;
-  console.log(storybookProps);
+
   const categoryDetails = (category: string) => {
     const { categoriesData } = storybookProps;
     const data = categoriesData[category];

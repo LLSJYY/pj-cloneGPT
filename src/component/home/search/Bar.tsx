@@ -6,25 +6,41 @@ import { useRecoilState } from "recoil";
 import MemoizedSearchButton from "./Button/Button";
 import { resultStore } from "@/lib/resultStore";
 interface IProps {
-  status: "Idle" | "isLoading" | "Success" | "isError";
-  onClickHandler: (e: any) => void;
+  storybookProps: IStorybookProps;
 }
 
-const SearchBar = (props: any) => {
+interface IStorybookProps {
+  state: IStatus;
+}
+interface IStatus {
+  [status: string]: boolean;
+}
+const SearchBar = (props: IProps) => {
   const [isClicked, setIsClicked] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const fetchChatBot = async () => {
     const res = chatBot(inputRef?.current?.value as string);
     return res;
   };
+
   const [result, setResult] = useRecoilState<string[]>(resultStore);
   const { isError, isSuccess, isLoading, data } = useApi<string>(
     fetchChatBot,
     isClicked
   );
+
+  const { storybookProps = { state: { isError, isSuccess, isLoading } } } =
+    props;
+
+  const State =
+    Object.keys(storybookProps.state).find(
+      (key) => storybookProps.state[key]
+    ) || "Idle";
+
   const onClickHandler = () => {
     setIsClicked(true);
   };
+
   useEffect(() => {
     if (!isLoading) {
       setIsClicked(false);
@@ -43,15 +59,7 @@ const SearchBar = (props: any) => {
       <MemoizedSearchButton
         {...props}
         inputRef={inputRef}
-        status={
-          isLoading
-            ? "isLoading"
-            : isSuccess
-            ? "isSuccess"
-            : isError
-            ? "isError"
-            : "Idle"
-        }
+        status={State}
         onClickHandler={onClickHandler}
       />
     </Wrapper>

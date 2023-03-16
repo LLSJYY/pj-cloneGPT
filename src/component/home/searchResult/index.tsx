@@ -1,8 +1,9 @@
 import { resultStore } from "@/lib/resultStore";
 import { useRecoilValue } from "recoil";
 import NewSearch from "./NewSearch";
+import Success from "./Success/Success";
 interface IProps {
-  result: any[];
+  result: any;
 }
 
 const Result = (props: any) => {
@@ -10,7 +11,7 @@ const Result = (props: any) => {
   if (result.length === 0) {
     return <NewSearch {...props} />;
   }
-  return <>{result}</>;
+  return <Success />;
 };
 
 export default Result;

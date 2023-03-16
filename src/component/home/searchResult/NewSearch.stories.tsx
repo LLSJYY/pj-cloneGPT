@@ -31,5 +31,4 @@ Default.args = {
   storybookProps: mockData,
 };
 export const noData = Template.bind({});
-
-noData.args = {};
+noData.args = { storybookProps: { categories: [], categoriesData: {} } };

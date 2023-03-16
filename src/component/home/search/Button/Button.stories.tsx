@@ -1,8 +1,8 @@
 import React from "react";
 import plane1 from "@/asset/search-plane.svg";
 import plane2 from "@/asset/search-plane2.svg";
+import type { Meta, Story } from "@storybook/react";
 import SearchButton from "./Button";
-import { Meta, Story } from "@storybook/react";
 
 type SearchButtonProps = React.ComponentProps<typeof SearchButton>;
 
