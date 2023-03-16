@@ -7,9 +7,8 @@ interface IProps {
 
 const Result = (props: any) => {
   const result = useRecoilValue(resultStore);
-  const category = ["Example", "Capabilities", "Limitations"];
   if (result.length === 0) {
-    return <NewSearch {...props} category={category} />;
+    return <NewSearch {...props} />;
   }
   return <>{result}</>;
 };

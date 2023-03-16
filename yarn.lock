@@ -3076,14 +3076,14 @@
   "version" "18.14.1"
 
 "@types/node@^14.0.10 || ^16.0.0":
-  "integrity" "sha512-vzLe5NaNMjIE3mcddFVGlAXN1LEWueUsMsOJWaT6wWMJGyljHAWHznqfnKUQWGzu7TLPrGvWdNAsvQYW+C0xtw=="
-  "resolved" "https://registry.npmjs.org/@types/node/-/node-16.18.12.tgz"
-  "version" "16.18.12"
+  "integrity" "sha512-ZOzvDRWp8dCVBmgnkIqYCArgdFOO9YzocZp8Ra25N/RStKiWvMOXHMz+GjSeVNe5TstaTmTWPucGJkDw0XXJWA=="
+  "resolved" "https://registry.npmjs.org/@types/node/-/node-16.18.16.tgz"
+  "version" "16.18.16"
 
 "@types/node@^14.14.20 || ^16.0.0":
-  "integrity" "sha512-vzLe5NaNMjIE3mcddFVGlAXN1LEWueUsMsOJWaT6wWMJGyljHAWHznqfnKUQWGzu7TLPrGvWdNAsvQYW+C0xtw=="
-  "resolved" "https://registry.npmjs.org/@types/node/-/node-16.18.12.tgz"
-  "version" "16.18.12"
+  "integrity" "sha512-ZOzvDRWp8dCVBmgnkIqYCArgdFOO9YzocZp8Ra25N/RStKiWvMOXHMz+GjSeVNe5TstaTmTWPucGJkDw0XXJWA=="
+  "resolved" "https://registry.npmjs.org/@types/node/-/node-16.18.16.tgz"
+  "version" "16.18.16"
 
 "@types/normalize-package-data@^2.4.0":
   "integrity" "sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw=="
@@ -5026,9 +5026,9 @@
     "browserslist" "^4.21.5"
 
 "core-js-pure@^3.23.3":
-  "integrity" "sha512-DSOVleA9/v3LNj/vFxAPfUHttKTzrB2RXhAPvR5TPXn4vrra3Z2ssytvRyt8eruJwAfwAiFADEbrjcRdcvPLQQ=="
-  "resolved" "https://registry.npmjs.org/core-js-pure/-/core-js-pure-3.28.0.tgz"
-  "version" "3.28.0"
+  "integrity" "sha512-4En6zYVi0i0XlXHVz/bi6l1XDjCqkKRq765NXuX+SnaIatlE96Odt5lMLjdxUiNI1v9OXI5DSLWYPlmTfkTktg=="
+  "resolved" "https://registry.npmjs.org/core-js-pure/-/core-js-pure-3.29.1.tgz"
+  "version" "3.29.1"
 
 "core-js@^3.0.1", "core-js@^3.0.4", "core-js@^3.6.5", "core-js@^3.8.2":
   "integrity" "sha512-GiZn9D4Z/rSYvTeg1ljAIsEqFm0LaN9gVtwDCrKL80zHtS31p9BAjmTxVqTQDMpwlMolJZOFntUG2uwyj7DAqw=="
@@ -6386,9 +6386,9 @@
     "bser" "2.1.1"
 
 "fetch-retry@^5.0.2":
-  "integrity" "sha512-uJQyMrX5IJZkhoEUBQ3EjxkeiZkppBd5jS/fMTJmfZxLSiaQjv2zD0kTvuvkSH89uFvgSlB6ueGpjD3HWN7Bxw=="
-  "resolved" "https://registry.npmjs.org/fetch-retry/-/fetch-retry-5.0.3.tgz"
-  "version" "5.0.3"
+  "integrity" "sha512-LXcdgpdcVedccGg0AZqg+S8lX/FCdwXD92WNZ5k5qsb0irRhSFsBOpcJt7oevyqT2/C2nEE0zSFNdBEpj3YOSw=="
+  "resolved" "https://registry.npmjs.org/fetch-retry/-/fetch-retry-5.0.4.tgz"
+  "version" "5.0.4"
 
 "fflate@^0.6.9":
   "integrity" "sha512-IQrh3lEPM93wVCEczc9SaAOvkmcoQn/G8Bo1e8ZPlY3X3bnAxWaBdvTdvM1hP62iZp0BXWDy4vTAy4fF0+Dlpg=="
@@ -8702,9 +8702,9 @@
     "yallist" "^4.0.0"
 
 "minipass@^4.0.0":
-  "integrity" "sha512-KS4CHIsDfOZetnT+u6fwxyFADXLamtkPxkGScmmtTW//MlRrImV+LtbmbJpLQ86Hw7km/utbfEfndhGBrfwvlA=="
-  "resolved" "https://registry.npmjs.org/minipass/-/minipass-4.2.1.tgz"
-  "version" "4.2.1"
+  "integrity" "sha512-+yQl7SX3bIT83Lhb4BVorMAHVuqsskxRdlmO9kTpyukp8vsm2Sn/fUOV9xlnG8/a5JsypJzap21lz/y3FBMJ8Q=="
+  "resolved" "https://registry.npmjs.org/minipass/-/minipass-4.2.5.tgz"
+  "version" "4.2.5"
 
 "minizlib@^2.1.1":
   "integrity" "sha512-bAxsR8BVfj60DWXHE3u30oHzfl4G7khkSuPW+qvpd7jFRHm7dLxOjUk1EHACJ/hxLY8phGJ0YhYHZo7jil7Qdg=="
@@ -12533,9 +12533,9 @@
     "typedarray-to-buffer" "^3.1.5"
 
 "ws@^8.2.3":
-  "integrity" "sha512-1qo+M9Ba+xNhPB+YTWUlK6M17brTut5EXbcBaMRN5pH5dFrXz7lzz1ChFSUq3bOUl8yEvSenhHmYUNJxFzdJew=="
-  "resolved" "https://registry.npmjs.org/ws/-/ws-8.12.1.tgz"
-  "version" "8.12.1"
+  "integrity" "sha512-x9vcZYTrFPC7aSIbj7sRCYo7L/Xb8Iy+pW0ng0wt2vCJv7M9HOMy0UoN3rr+IFC7hb7vXoqS+P9ktyLLLhO+LA=="
+  "resolved" "https://registry.npmjs.org/ws/-/ws-8.13.0.tgz"
+  "version" "8.13.0"
 
 "x-default-browser@^0.4.0":
   "integrity" "sha512-7LKo7RtWfoFN/rHx1UELv/2zHGMx8MkZKDq1xENmOCTkfIqZJ0zZ26NEJX8czhnPXVcqS0ARjjfJB+eJ0/5Cvw=="

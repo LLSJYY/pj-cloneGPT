@@ -39,5 +39,5 @@ export function useApi<T>(
     }
   }, [trigger]);
 
-  return { isError, isSuccess, isLoading, data, error };
+  return { isError, isSuccess, isLoading, data, error }; // message 수정
 }

@@ -23,8 +23,6 @@ const SearchButton = (props: IProps<IImageStyle>) => {
   const { status, imageStyle, onClickHandler, inputRef } = props;
   const imageSrc = imageStyle?.src ?? plane2;
   const [dot, setDot] = useState<string>("");
-  console.log(status);
-  console.log("button");
   useEffect(() => {
     if (status === "isLoading") {
       const intervalId = setInterval(() => {
