@@ -3,10 +3,10 @@ import Image from "next/image";
 import styled from "styled-components";
 import { Button } from "./Button.styles";
 import plane2 from "@/asset/search-plane2.svg";
-interface IProps<T> {
-  status: "Idle" | "isLoading" | "isSuccess" | "isError";
+interface IProps {
+  status: string; // type Error
   onClickHandler: (e: any) => void;
-  imageStyle?: T;
+  imageStyle?: IImageStyle;
   inputRef: RefObject<HTMLInputElement>;
 }
 interface IImageStyle {
@@ -19,12 +19,10 @@ interface IImageStyle {
 const Span = styled.span`
   width: 50px;
 `;
-const SearchButton = (props: IProps<IImageStyle>) => {
+const SearchButton = (props: IProps) => {
   const { status, imageStyle, onClickHandler, inputRef } = props;
   const imageSrc = imageStyle?.src ?? plane2;
   const [dot, setDot] = useState<string>("");
-  console.log(status);
-  console.log("button");
   useEffect(() => {
     if (status === "isLoading") {
       const intervalId = setInterval(() => {
