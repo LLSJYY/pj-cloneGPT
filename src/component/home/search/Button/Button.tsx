@@ -21,6 +21,7 @@ const Span = styled.span`
 `;
 const SearchButton = (props: IProps) => {
   const { status, imageStyle, onClickHandler, inputRef } = props;
+  console.log(status);
   const imageSrc = imageStyle?.src ?? plane2;
   const [dot, setDot] = useState<string>("");
   useEffect(() => {

@@ -3,10 +3,11 @@ import { useRef, useState, useEffect } from "react";
 import { chatBot } from "@/api/chatbot";
 import { useApi } from "@/utils/hooks/useApi";
 import { useRecoilState } from "recoil";
+import { getChatBoxState } from "@/lib/chatHistory";
 import MemoizedSearchButton from "./Button/Button";
-import { resultStore } from "@/lib/resultStore";
 interface IProps {
   storybookProps: IStorybookProps;
+  chatBoxId: string;
 }
 
 interface IStorybookProps {
@@ -18,20 +19,23 @@ interface IStatus {
 const SearchBar = (props: IProps) => {
   const [isClicked, setIsClicked] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+
   const fetchChatBot = async () => {
     const res = chatBot(inputRef?.current?.value as string);
     return res;
   };
-
-  const [result, setResult] = useRecoilState<string[]>(resultStore);
   const { isError, isSuccess, isLoading, data } = useApi<string>(
     fetchChatBot,
     isClicked
   );
+  const {
+    storybookProps = { state: { isError, isSuccess, isLoading } },
+    chatBoxId = "defaultId",
+  } = props;
 
-  const { storybookProps = { state: { isError, isSuccess, isLoading } } } =
-    props;
-
+  const [chatBoxState, setChatBoxState] = useRecoilState(
+    getChatBoxState(chatBoxId)
+  );
   const State =
     Object.keys(storybookProps.state).find(
       (key) => storybookProps.state[key]

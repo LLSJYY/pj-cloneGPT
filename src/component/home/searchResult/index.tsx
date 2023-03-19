@@ -1,6 +1,6 @@
 import { resultStore } from "@/lib/resultStore";
 import { useRecoilValue } from "recoil";
-import NewSearch from "./NewSearch";
+import NewSearch from "./New/NewSearch";
 import Success from "./Success/Success";
 interface IProps {
   result: any;
