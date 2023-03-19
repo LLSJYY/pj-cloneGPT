@@ -21,8 +21,17 @@ export function useApi<T>(
   const [data, setData] = useState<T | null>(null);
   const [error, setError] = useState<Error | null>(null);
 
+  const resetState = () => {
+    setIsLoading(false);
+    setIsError(false);
+    setIsSuccess(false);
+    setData(null);
+    setError(null);
+  };
+
   useEffect(() => {
     const fetchData = async () => {
+      resetState();
       setIsLoading(true);
       try {
         const result = await fetchFunc();
@@ -37,7 +46,7 @@ export function useApi<T>(
     if (trigger) {
       fetchData();
     }
-  }, [trigger]);
+  }, [trigger, dependencies]);
 
   return { isError, isSuccess, isLoading, data, error }; // message 수정
 }
