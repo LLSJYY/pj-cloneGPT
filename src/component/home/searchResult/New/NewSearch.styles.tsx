@@ -30,14 +30,13 @@ export const ItemButton = styled.button`
 `;
 
 export const ItemLi = styled.li`
-background-color: #f7f7f8;
+background-color: #3e3f4b;
 margin : 0.5rem ;
 padding: 0.5rem;
 list-style: none;
 gap: 0.875rem;
 border: none;
 font-size: 1.25rem
-background-color: rgba(247, 247, 248, 0);
 opacity: 1;
 border-radius: 0.375rem
 `;

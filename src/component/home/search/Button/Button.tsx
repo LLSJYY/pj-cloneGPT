@@ -1,8 +1,8 @@
 import React, { useState, useEffect, RefObject } from "react";
 import Image from "next/image";
 import styled from "styled-components";
-import { Button } from "./Button.styles";
-import plane2 from "@/asset/search-plane2.svg";
+import { Button, Span } from "./Button.styles";
+import plane2 from "@/asset/search-plane3.png";
 interface IProps {
   status: string; // type Error
   onClickHandler: (e: any) => void;
@@ -16,9 +16,6 @@ interface IImageStyle {
   src?: string;
 }
 
-const Span = styled.span`
-  width: 50px;
-`;
 const SearchButton = (props: IProps) => {
   const { status, imageStyle, onClickHandler, inputRef } = props;
   console.log(status);
@@ -52,7 +49,7 @@ const SearchButton = (props: IProps) => {
   if (status === "isLoading") {
     return (
       <Button>
-        <span>{dot}</span>
+        <Span>{dot}</Span>
       </Button>
     );
   }
