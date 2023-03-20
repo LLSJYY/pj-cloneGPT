@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
 
   @media (min-width: 768px) {
     /* styles for the input box when the window width is at least 768px */
-    width: 760px;
+    width: calc(100% - 235px);
   }
 
   @media (max-width: 767px) {

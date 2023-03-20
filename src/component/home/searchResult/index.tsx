@@ -15,10 +15,10 @@ const Div = styled.div`
 
 const Result = (props: any) => {
   return (
-    <Div>
+    <>
       <NewSearch {...props} />
       <SearchBar {...props} />
-    </Div>
+    </>
   );
 };
 

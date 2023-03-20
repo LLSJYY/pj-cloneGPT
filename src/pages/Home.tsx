@@ -4,15 +4,18 @@ import SideBar from "@/component/sidebar";
 import styled from "styled-components";
 import Header from "@/component/header";
 const HomeStyle = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: row;
 `;
 const Temp = styled.div`
-  @media (min-width: 768px) {
+  @media (max-width: 767px) {
     display: flex;
     flex-direction: row;
+  }
+  @media (min-width: 768px) {
+    display: flex;
   }
 `;
 const Home = (props: any) => {
