@@ -9,4 +9,12 @@ export const SideBarNav = styled.nav`
     padding: 0.5rem;
     background-color: #202123;
   }
+
+  @media screen and (max-width: 768px) {
+    display: none;
+
+    & > * {
+      display: none;
+    }
+  }
 `;

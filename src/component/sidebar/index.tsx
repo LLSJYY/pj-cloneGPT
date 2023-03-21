@@ -4,7 +4,7 @@ import { SideBarNav } from "./index.style";
 
 const SideBar = () => {
   return (
-    <SideBarNav>
+    <SideBarNav hideMobile={true}>
       <ChatBoxes />
     </SideBarNav>
   );

@@ -1,9 +1,6 @@
 import styled from "styled-components";
 
 export const NewChatBox = styled.div`
-  @media (max-width: 767px) {
-    display: none;
-  }
   display: flex;
   flex-direction: row;
   width: 218px;
