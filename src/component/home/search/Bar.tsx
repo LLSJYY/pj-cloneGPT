@@ -1,8 +1,16 @@
-import { Input, Wrapper } from "./Input/Input";
+import {
+  Form,
+  InputWrapper,
+  Input,
+  Wrapper,
+  Inputliner,
+  InputStyle,
+} from "./Input/Input";
 import { useRef, useState, useEffect } from "react";
 import { chatBot } from "@/api/chatbot";
 import { useApi } from "@/utils/hooks/useApi";
-import MemoizedSearchButton from "./Button/Button";
+import Footer from "@/component/footer/Footer";
+import SearchButton from "./Button/Button";
 interface IProps {
   storybookProps: IStorybookProps;
 }
@@ -48,15 +56,24 @@ const SearchBar = (props: IProps) => {
   }, [isLoading]); //Todo 분기처리
 
   return (
-    <Wrapper>
-      <Input ref={inputRef} />
-      <MemoizedSearchButton
-        {...props}
-        inputRef={inputRef}
-        status={State}
-        onClickHandler={onClickHandler}
-      />
-    </Wrapper>
+    <>
+      {" "}
+      <Form>
+        <InputWrapper>
+          <Inputliner />
+          <InputStyle>
+            <Input ref={inputRef} />
+            <SearchButton
+              {...props}
+              inputRef={inputRef}
+              status={State}
+              onClickHandler={onClickHandler}
+            />
+          </InputStyle>
+        </InputWrapper>
+      </Form>
+      <Footer />
+    </>
   );
 };
 

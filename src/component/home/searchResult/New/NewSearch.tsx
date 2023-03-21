@@ -3,8 +3,9 @@ import {
   CategoryTitle,
   ItemBox,
   ItemLi,
-  ItemButton,
   ChatGPT,
+  Wrapper,
+  SeperateDiv,
 } from "./NewSearch.styles";
 interface IProps<T> {
   storybookProps: T;
@@ -43,7 +44,7 @@ const NewSearch = (props: IProps<IMockData<ICategoiesData>>) => {
   };
 
   return (
-    <div>
+    <Wrapper>
       <ChatGPT>Chat GPT</ChatGPT>
       <CategoryBox>
         {storybookProps.categories.map((category: string, idx: number) => {
@@ -55,7 +56,8 @@ const NewSearch = (props: IProps<IMockData<ICategoiesData>>) => {
           );
         })}
       </CategoryBox>
-    </div>
+      <SeperateDiv />
+    </Wrapper>
   );
 };
 

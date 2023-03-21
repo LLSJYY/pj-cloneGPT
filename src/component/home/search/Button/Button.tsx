@@ -60,6 +60,5 @@ const SearchButton = (props: IProps) => {
     </Button>
   );
 };
-const MemoizedSearchButton = React.memo(SearchButton);
 
-export default MemoizedSearchButton;
+export default SearchButton;

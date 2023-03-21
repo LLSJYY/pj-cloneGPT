@@ -7,7 +7,7 @@ const HomeStyle = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
 `;
 const Temp = styled.div`
@@ -19,15 +19,24 @@ const Temp = styled.div`
     display: flex;
   }
 `;
+const Div = styled.div`
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: relative;
+`;
 const Home = (props: any) => {
   return (
-    <Temp>
-      <Header />
-      <SideBar />
-      <HomeStyle>
-        <Result />
-      </HomeStyle>
-    </Temp>
+    <Div>
+      <Temp>
+        <Header />
+        <SideBar />
+        <HomeStyle>
+          <Result />
+          <SearchBar {...props} />
+        </HomeStyle>
+      </Temp>
+    </Div>
   );
 };
 

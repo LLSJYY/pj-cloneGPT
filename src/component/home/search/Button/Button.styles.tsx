@@ -29,6 +29,27 @@ export const Button = styled.button<IButtonProps>`
       props.backgroundColorHover || " rgb(17 24 39)"};
     color: blue;
   }
+
+  position: absolute;
+  padding: 0.25rem;
+  border-radius: 0.375rem;
+  color: #718096;
+  bottom: -0.375rem;
+  right: -0.375rem;
+  cursor: pointer;
+  ${(props) => props.backgroundColor || "#2d3748"}
+  &:hover {
+    background-color: ${(props) => props.backgroundColorHover || "#4a5568"};
+  }
+
+  &:disabled:hover {
+    background-color: transparent;
+  }
+
+  @media (min-width: 768px) {
+    bottom: -0.625rem;
+    right: -0.625rem;
+  }
 `;
 
 export const Span = styled.span`

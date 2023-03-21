@@ -1,24 +1,26 @@
 import NewSearch from "./New/NewSearch";
 import SearchBar from "../search/Bar";
-import Success from "./Success/Success";
+import Footer from "@/component/footer/Footer";
 import styled from "styled-components";
 interface IProps {
   result: any;
 }
-const Div = styled.div`
+const Wrapper = styled.div`
+  position: relative;
+  height: 100%;
+  width: 100%;
+  transition: width 0.3s ease;
   display: flex;
-  flex: 1;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+  flex: 1;
 `;
 
 const Result = (props: any) => {
   return (
-    <>
+    <Wrapper>
       <NewSearch {...props} />
-      <SearchBar {...props} />
-    </>
+    </Wrapper>
   );
 };
 
