@@ -8,11 +8,12 @@ const HomeStyle = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: row;
+  justify-content: center;
 `;
 const Temp = styled.div`
   @media (max-width: 767px) {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
   @media (min-width: 768px) {
     display: flex;
