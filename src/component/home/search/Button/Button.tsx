@@ -38,8 +38,8 @@ const SearchButton = (props: IProps) => {
       <Button onClick={() => onClickHandler(inputRef?.current?.value)}>
         <Image
           alt="plane"
-          width={imageStyle?.width || 25}
-          height={imageStyle?.width || 25}
+          width={imageStyle?.width || 16}
+          height={imageStyle?.width || 16}
           src={imageSrc}
         />
       </Button>

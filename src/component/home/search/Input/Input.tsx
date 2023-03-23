@@ -5,44 +5,38 @@ export const Wrapper = styled.div`
   bottom: 0;
   left: 0;
   width: 100%;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  padding-top: 0.5rem;
-  background-color: #343541;
+  background-color: #4a5568;
 
   @media (min-width: 768px) {
-    border-top: none; /* equivalent to md:border-t-0 */
-    border-left: 1px solid rgba(255, 255, 255, 0.2); /* equivalent to md:border-t-0 */
-    background-image: linear-gradient(
-      180deg,
-      rgba(53, 55, 64, 0),
-      #353740 58.85%
-    );
-    border-color: rgba(255, 255, 255, 0.2);
+    border-top: 0;
+    border-color: transparent;
+  }
+
   }
 `;
 
-export const Form = styled.form`
+export const Form = styled.div`
   display: flex;
   flex-direction: row;
   align-items: stretch;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-  & > *:not(:last-child) {
-    margin-right: 0.75rem;
-  }
+  justify-content: space-between;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  gap: 0.75rem;
+
   &:last-child {
     margin-bottom: 0.5rem;
   }
+
   @media (min-width: 768px) {
-    margin-left: 1rem;
-    margin-right: 1rem;
-    & > *:not(:last-child) {
-      margin-right: 1.5rem;
-    }
+    margin-left: 4rem;
+    margin-right: 4rem;
+
     &:last-child {
       margin-bottom: 1rem;
     }
   }
+
   @media (min-width: 1024px) {
     margin-left: auto;
     margin-right: auto;

@@ -23,13 +23,12 @@ export const Button = styled.button<IButtonProps>`
   color: black;
   font-size: 14px;
   margin: 11px 20px;
-  background-color: ${(props) => props.backgroundColor || "#3e3f4b"};
+  background-color: ${(props) => props.backgroundColor || "#4a5568"};
   &:hover {
     background-color: ${(props) =>
       props.backgroundColorHover || " rgb(17 24 39)"};
     color: blue;
   }
-
   position: absolute;
   padding: 0.25rem;
   border-radius: 0.375rem;
@@ -37,16 +36,17 @@ export const Button = styled.button<IButtonProps>`
   bottom: -0.375rem;
   right: -0.375rem;
   cursor: pointer;
-  ${(props) => props.backgroundColor || "#2d3748"}
   &:hover {
-    background-color: ${(props) => props.backgroundColorHover || "#4a5568"};
+    background-color: ${(props) => props.backgroundColorHover || "#3e3f4b"};
   }
 
   &:disabled:hover {
     background-color: transparent;
   }
 
-  @media (min-width: 768px) {
+  @media (max-width: 768px) {
+    padding: 0.25rem;
+
     bottom: -0.625rem;
     right: -0.625rem;
   }

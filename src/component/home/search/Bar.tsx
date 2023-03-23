@@ -56,8 +56,7 @@ const SearchBar = (props: IProps) => {
   }, [isLoading]); //Todo 분기처리
 
   return (
-    <>
-      {" "}
+    <Wrapper>
       <Form>
         <InputWrapper>
           <Inputliner />
@@ -73,7 +72,7 @@ const SearchBar = (props: IProps) => {
         </InputWrapper>
       </Form>
       <Footer />
-    </>
+    </Wrapper>
   );
 };
 
