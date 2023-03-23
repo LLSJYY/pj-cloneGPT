@@ -3,13 +3,15 @@ import Result from "@/component/home/searchResult";
 import ScrollToBottom from "react-scroll-to-bottom";
 import styled from "styled-components";
 import Image from "next/image";
+import SideBar from "@/component/sidebar";
+import ChatBoxes from "@/component/sidebar/newChat";
 const HomeWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   position: relative;
   background-color: #fff;
 `;
-const HomeSideBar = styled.div`
+const HomeWrapper2 = styled.div`
   display: flex;
   height: 100%;
   flex: 1;
@@ -65,13 +67,9 @@ export const SeperateDiv = styled.div`
 `;
 
 const Home = (props: any) => {
-  const ROOT_CSS = {
-    height: 600,
-    width: 400,
-  };
   return (
     <HomeWrapper>
-      <HomeSideBar>
+      <HomeWrapper2>
         <HomeMain>
           <HomeDiv>
             <HomeDiv2>
@@ -83,7 +81,8 @@ const Home = (props: any) => {
             <SearchBar {...props} />
           </HomeDiv>
         </HomeMain>
-      </HomeSideBar>
+      </HomeWrapper2>
+      <SideBar />
     </HomeWrapper>
   );
 };

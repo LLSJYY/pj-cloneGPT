@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #4a5568;
+  background-color: rgba(52,53,65);
 
   @media (min-width: 768px) {
     border-top: 0;
