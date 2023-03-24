@@ -1,11 +1,11 @@
 interface ISideBarOptions {
-  [key: string]: [string, string];
+  [key: string]: string;
 }
 
 export const OPTIONS: ISideBarOptions = {
-  CLEAR: ["Clear conversations", "CLEAR"],
-  UPGRADE: ["", ""],
-  MODE: ["", ""],
-  UPDATE: ["", ""],
-  LOGOUT: ["", ""],
+  CLEAR: "Clear conversations",
+  UPGRADE: "Upgrade to Plus",
+  LIGHT: "Light mode",
+  UPDATE: "Update & FAQ",
+  LOGOUT: "Log out",
 };

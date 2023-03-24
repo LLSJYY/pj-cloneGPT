@@ -57,6 +57,7 @@ const NewSearch = (props: IProps<IMockData<ICategoiesData>>) => {
           return (
             <InfoCategory key={idx}>
               <Image alt={category} src={mockData.categoriesImg[idx]}></Image>
+
               <Category>{category}</Category>
               <ItemBox>{categoryDetails(category)}</ItemBox>
             </InfoCategory>
