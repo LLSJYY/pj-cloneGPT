@@ -1,16 +1,22 @@
 import {
-  CategoryBox,
-  CategoryTitle,
+  InfoBox,
+  InfoCategory,
+  Category,
   ItemBox,
-  ItemLi,
-  ItemButton,
+  Item,
   ChatGPT,
 } from "./NewSearch.styles";
+import Image from "next/image";
+import Capabilities from "@/asset/Capabilities.svg";
+import Limitations from "@/asset/Limitations.svg";
+import Examples from "@/asset/Examples.svg";
+
 interface IProps<T> {
   storybookProps: T;
 }
 interface IMockData<T> {
   categories: string[];
+  categoriesImg: any[];
   categoriesData: T;
 }
 interface ICategoiesData {
@@ -18,9 +24,10 @@ interface ICategoiesData {
 }
 
 const mockData: IMockData<ICategoiesData> = {
-  categories: ["Example", "Capabilities", "Limitations"],
+  categories: ["Examples", "Capabilities", "Limitations"],
+  categoriesImg: [Examples, Capabilities, Limitations],
   categoriesData: {
-    Example: [...EXAMPLES],
+    Examples: [...EXAMPLES],
     Capabilities: [...CAPABILITIES],
     Limitations: [...LIMITATIONS],
   },
@@ -35,27 +42,29 @@ const NewSearch = (props: IProps<IMockData<ICategoiesData>>) => {
     const data = categoriesData[category];
 
     if (!data) {
-      return <ItemLi>No data available for this category</ItemLi>;
+      return <Item>No data available for this category</Item>;
     }
     return data.map((el: string, index: number) => (
-      <ItemLi key={`${category} ${index}`}>{el}</ItemLi>
+      <Item key={`${category} ${index}`}>{el}</Item>
     ));
   };
 
   return (
-    <div>
+    <>
       <ChatGPT>Chat GPT</ChatGPT>
-      <CategoryBox>
+      <InfoBox>
         {storybookProps.categories.map((category: string, idx: number) => {
           return (
-            <CategoryTitle key={idx}>
-              {category}
+            <InfoCategory key={idx}>
+              <Image alt={category} src={mockData.categoriesImg[idx]}></Image>
+
+              <Category>{category}</Category>
               <ItemBox>{categoryDetails(category)}</ItemBox>
-            </CategoryTitle>
+            </InfoCategory>
           );
         })}
-      </CategoryBox>
-    </div>
+      </InfoBox>
+    </>
   );
 };
 

@@ -1,5 +1,5 @@
 import React from "react";
-import NewSearch from "./NewSearch";
+import NewSearch from "../New/NewSearch";
 import { Meta, Story } from "@storybook/react";
 import { EXAMPLES, CAPABILITIES, LIMITATIONS } from "@/constant/indexPage";
 type NewSearchProps = React.ComponentProps<typeof NewSearch>;

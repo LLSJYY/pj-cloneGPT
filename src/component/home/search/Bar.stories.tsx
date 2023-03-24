@@ -19,7 +19,7 @@ export default {
 const Template: Story<SearchBarProps> = (args) => {
   return <SearchBar {...args}></SearchBar>;
 };
-
+export const Default = Template.bind({}); // 수정
 export const State = Template.bind({});
 State.args = {
   storybookProps: {

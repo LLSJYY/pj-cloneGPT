@@ -1,8 +1,8 @@
 import React, { useState, useEffect, RefObject } from "react";
 import Image from "next/image";
 import styled from "styled-components";
-import { Button } from "./Button.styles";
-import plane2 from "@/asset/search-plane2.svg";
+import { Button, Span } from "./Button.styles";
+import plane2 from "@/asset/search-plane3.png";
 interface IProps {
   status: string; // type Error
   onClickHandler: (e: any) => void;
@@ -16,11 +16,9 @@ interface IImageStyle {
   src?: string;
 }
 
-const Span = styled.span`
-  width: 50px;
-`;
 const SearchButton = (props: IProps) => {
   const { status, imageStyle, onClickHandler, inputRef } = props;
+  console.log(status);
   const imageSrc = imageStyle?.src ?? plane2;
   const [dot, setDot] = useState<string>("");
   useEffect(() => {
@@ -40,8 +38,8 @@ const SearchButton = (props: IProps) => {
       <Button onClick={() => onClickHandler(inputRef?.current?.value)}>
         <Image
           alt="plane"
-          width={imageStyle?.width || 25}
-          height={imageStyle?.width || 25}
+          width={imageStyle?.width || 16}
+          height={imageStyle?.width || 16}
           src={imageSrc}
         />
       </Button>
@@ -51,7 +49,7 @@ const SearchButton = (props: IProps) => {
   if (status === "isLoading") {
     return (
       <Button>
-        <span>{dot}</span>
+        <Span>{dot}</Span>
       </Button>
     );
   }
@@ -62,6 +60,5 @@ const SearchButton = (props: IProps) => {
     </Button>
   );
 };
-const MemoizedSearchButton = React.memo(SearchButton);
 
-export default MemoizedSearchButton;
+export default SearchButton;

@@ -1,10 +1,16 @@
-import { Input, Wrapper } from "./Input/Input";
+import {
+  Form,
+  InputWrapper,
+  Input,
+  Wrapper,
+  Inputliner,
+  InputStyle,
+} from "./Input/Input";
 import { useRef, useState, useEffect } from "react";
 import { chatBot } from "@/api/chatbot";
 import { useApi } from "@/utils/hooks/useApi";
-import { useRecoilState } from "recoil";
-import MemoizedSearchButton from "./Button/Button";
-import { resultStore } from "@/lib/resultStore";
+import Footer from "@/component/footer/Footer";
+import SearchButton from "./Button/Button";
 interface IProps {
   storybookProps: IStorybookProps;
 }
@@ -22,13 +28,10 @@ const SearchBar = (props: IProps) => {
     const res = chatBot(inputRef?.current?.value as string);
     return res;
   };
-
-  const [result, setResult] = useRecoilState<string[]>(resultStore);
   const { isError, isSuccess, isLoading, data } = useApi<string>(
     fetchChatBot,
     isClicked
   );
-
   const { storybookProps = { state: { isError, isSuccess, isLoading } } } =
     props;
 
@@ -45,7 +48,6 @@ const SearchBar = (props: IProps) => {
     if (!isLoading) {
       setIsClicked(false);
       if (isSuccess) {
-        setResult((prev) => [...prev, data as string]);
       }
       if (isError) {
         console.log("Error");
@@ -55,13 +57,21 @@ const SearchBar = (props: IProps) => {
 
   return (
     <Wrapper>
-      <Input ref={inputRef} />
-      <MemoizedSearchButton
-        {...props}
-        inputRef={inputRef}
-        status={State}
-        onClickHandler={onClickHandler}
-      />
+      <Form>
+        <InputWrapper>
+          <Inputliner />
+          <InputStyle>
+            <Input ref={inputRef} />
+            <SearchButton
+              {...props}
+              inputRef={inputRef}
+              status={State}
+              onClickHandler={onClickHandler}
+            />
+          </InputStyle>
+        </InputWrapper>
+      </Form>
+      <Footer />
     </Wrapper>
   );
 };
