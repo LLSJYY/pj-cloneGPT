@@ -50,7 +50,7 @@ const HomeDiv2 = styled.div`
 const ChatInfo = styled.div`
   height: 100%;
   width: 100%;
-  max-width: 2xl;
+  max-width: 48rem;
   display: flex;
   flex-direction: column;
   color: #f3f4f6;
