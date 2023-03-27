@@ -10,6 +10,7 @@ const HomeWrapper = styled.div`
   height: 100vh;
   position: relative;
   background-color: #fff;
+  overflow: hidden;
 `;
 const HomeWrapper2 = styled.div`
   display: flex;
