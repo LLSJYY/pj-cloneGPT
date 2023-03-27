@@ -26,14 +26,14 @@ const mockData: IMockData<IOptionsData> = {
 const OptionBox = (props: any) => {
   const { storybookProps = mockData } = props;
 
-  const { options, optionsImg, optionsData } = storybookProps;
+  const { optionsData, optionsImg, optionsDetail } = storybookProps;
 
   return (
     <>
-      {options.map((option: string, index: number) => (
+      {optionsData.map((option: string, index: number) => (
         <Option key={option}>
           <Image alt={option} src={optionsImg[index]} />
-          {optionsData[option]}
+          {optionsDetail[option]}
         </Option>
       ))}
     </>
