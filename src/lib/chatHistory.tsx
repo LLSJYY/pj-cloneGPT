@@ -1,21 +1,39 @@
 import { atom } from "recoil";
 
-type ChatHistory = { question: string; answer: string }[];
-
-type ChatBoxState = {
-  chatHistory: ChatHistory;
+type TChat = {
+  isNewChatbox: boolean;
+  chatBoxId: string;
 };
 
-const chatBoxesState = atom<{ [key: string]: ChatBoxState }>({
-  key: "chatBoxes",
-  default: {},
-});
+type TChatHistory = {
+  title: string;
+  status: "isLoading" | "isSuccess" | "isError" | "Idle";
+  chatDetail: TChatDetail;
+};
 
-export const getChatBoxState = (chatBoxId: string) => {
-  return atom({
+type TChatDetail = {
+  firstChat: string[];
+  totalChat: string[];
+};
+
+export const chatHistoryAtom = (chatBoxId: string) => {
+  return atom<TChatHistory>({
     key: `chatBox_${chatBoxId}`,
     default: {
-      chatHistory: [],
+      title: chatBoxId,
+      status: "Idle",
+      chatDetail: {
+        firstChat: [], // [FisrtQuestion,FirstAnswer]
+        totalChat: [], // [Q,A,Q,A,...]
+      },
     },
   });
 };
+
+export const chatAtom = atom<TChat>({
+  key: `chat`,
+  default: {
+    isNewChatbox: true,
+    chatBoxId: "",
+  },
+});

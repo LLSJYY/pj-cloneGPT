@@ -1,5 +1,5 @@
-import SearchBar from "@/component/home/search/Bar";
-import Result from "@/component/home/searchResult";
+import SearchBar from "@/component/home/search/bar/Bar";
+import Result from "@/component/home/chat";
 import ScrollToBottom from "react-scroll-to-bottom";
 import styled from "styled-components";
 import Image from "next/image";
