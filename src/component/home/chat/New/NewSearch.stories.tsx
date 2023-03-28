@@ -1,5 +1,5 @@
 import React from "react";
-import NewSearch from "../New/NewSearch";
+import NewSearch from "./NewSearch";
 import { Meta, Story } from "@storybook/react";
 import { EXAMPLES, CAPABILITIES, LIMITATIONS } from "@/constant/indexPage";
 type NewSearchProps = React.ComponentProps<typeof NewSearch>;
@@ -27,8 +27,5 @@ const Template: Story<NewSearchProps> = (args) => {
 };
 
 export const Default = Template.bind({});
-Default.args = {
-  storybookProps: mockData,
-};
+Default.args = {};
 export const noData = Template.bind({});
-noData.args = { storybookProps: { categories: [], categoriesData: {} } };

@@ -5,12 +5,14 @@ import {
   Wrapper,
   Inputliner,
   InputStyle,
-} from "./Input/Input";
+} from "./Bar.styles";
 import { useRef, useState, useEffect } from "react";
 import { chatBot } from "@/api/chatbot";
 import { useApi } from "@/utils/hooks/useApi";
 import Footer from "@/component/footer/Footer";
-import SearchButton from "./Button/Button";
+import SearchButton from "../button/Button";
+import { chatAtom } from "@/lib/chatHistory";
+import { useRecoilState } from "recoil";
 interface IProps {
   storybookProps: IStorybookProps;
 }
@@ -21,13 +23,16 @@ interface IStorybookProps {
 interface IStatus {
   [status: string]: boolean;
 }
+
 const SearchBar = (props: IProps) => {
   const [isClicked, setIsClicked] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+  const [chat, setChat] = useRecoilState(chatAtom);
   const fetchChatBot = async () => {
-    const res = chatBot(inputRef?.current?.value as string);
+    const res = await chatBot(inputRef?.current?.value as string);
     return res;
   };
+
   const { isError, isSuccess, isLoading, data } = useApi<string>(
     fetchChatBot,
     isClicked
@@ -47,7 +52,8 @@ const SearchBar = (props: IProps) => {
   useEffect(() => {
     if (!isLoading) {
       setIsClicked(false);
-      if (isSuccess) {
+      if (isSuccess && data) {
+        setChat({ isNewChatbox: false, chatBoxId: data });
       }
       if (isError) {
         console.log("Error");

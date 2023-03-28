@@ -1,8 +1,7 @@
 import React, { useState, useEffect, RefObject } from "react";
 import Image from "next/image";
-import styled from "styled-components";
-import { Button, Span } from "./Button.styles";
 import plane2 from "@/asset/search-plane3.png";
+import { Button, Span } from "./Button.styles";
 interface IProps {
   status: string; // type Error
   onClickHandler: (e: any) => void;
