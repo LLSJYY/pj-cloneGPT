@@ -17,20 +17,18 @@ interface IImageStyle {
 
 const SearchButton = (props: IProps) => {
   const { status, imageStyle, onClickHandler, inputRef } = props;
-  console.log(status);
   const imageSrc = imageStyle?.src ?? plane2;
   const [dot, setDot] = useState<string>("");
-  useEffect(() => {
-    if (status === "isLoading") {
-      const intervalId = setInterval(() => {
-        setDot((prevDot) => (prevDot.length < 3 ? dot + "." : "."));
-      }, 500);
 
-      return () => {
-        clearInterval(intervalId);
-      };
-    }
-  }, [status, dot]);
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setDot((prevDot) => (prevDot.length < 3 ? dot + "." : "."));
+    }, 500); //props
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [status === "isLoading" && dot]);
 
   if (status === "isSuccess" || status === "Idle") {
     return (

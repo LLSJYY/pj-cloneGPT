@@ -1,32 +1,28 @@
+import Image from "next/image";
+import Capabilities from "@/asset/Capabilities.svg";
+import Limitations from "@/asset/Limitations.svg";
+import { IMockData } from "@/utils/types/Types";
+import Examples from "@/asset/Examples.svg";
 import {
+  ChatGPT,
+  Item,
   InfoBox,
   InfoCategory,
   Category,
   ItemBox,
-  Item,
-  ChatGPT,
 } from "./NewSearch.styles";
-import Image from "next/image";
-import Capabilities from "@/asset/Capabilities.svg";
-import Limitations from "@/asset/Limitations.svg";
-import Examples from "@/asset/Examples.svg";
-
 interface IProps<T> {
   storybookProps: T;
 }
-interface IMockData<T> {
-  categories: string[];
-  categoriesImg: any[];
-  categoriesData: T;
-}
+
 interface ICategoiesData {
   [category: string]: string[];
 }
 
-const mockData: IMockData<ICategoiesData> = {
-  categories: ["Examples", "Capabilities", "Limitations"],
+const mockData: IMockData<Record<string, any>> = {
+  categoriesData: ["Examples", "Capabilities", "Limitations"],
   categoriesImg: [Examples, Capabilities, Limitations],
-  categoriesData: {
+  categoriesDetail: {
     Examples: [...EXAMPLES],
     Capabilities: [...CAPABILITIES],
     Limitations: [...LIMITATIONS],
@@ -38,8 +34,8 @@ const NewSearch = (props: IProps<IMockData<ICategoiesData>>) => {
   const { storybookProps = mockData } = props;
 
   const categoryDetails = (category: string) => {
-    const { categoriesData } = storybookProps;
-    const data = categoriesData[category];
+    const { categoriesDetail } = storybookProps;
+    const data = categoriesDetail[category];
 
     if (!data) {
       return <Item>No data available for this category</Item>;
@@ -53,7 +49,7 @@ const NewSearch = (props: IProps<IMockData<ICategoiesData>>) => {
     <>
       <ChatGPT>Chat GPT</ChatGPT>
       <InfoBox>
-        {storybookProps.categories.map((category: string, idx: number) => {
+        {storybookProps.categoriesData.map((category: string, idx: number) => {
           return (
             <InfoCategory key={idx}>
               <Image alt={category} src={mockData.categoriesImg[idx]}></Image>
