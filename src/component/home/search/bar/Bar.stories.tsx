@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
-import SearchBar from "./Bar";
+import SearchBar from "../bar/Bar";
 import { RecoilRoot } from "recoil";
 type SearchBarProps = React.ComponentProps<typeof SearchBar>;
 
