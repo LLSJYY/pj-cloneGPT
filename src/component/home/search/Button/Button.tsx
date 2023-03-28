@@ -19,16 +19,17 @@ const SearchButton = (props: IProps) => {
   const { status, imageStyle, onClickHandler, inputRef } = props;
   const imageSrc = imageStyle?.src ?? plane2;
   const [dot, setDot] = useState<string>("");
-
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setDot((prevDot) => (prevDot.length < 3 ? dot + "." : "."));
-    }, 500); //props
+    if (status === "isLoading") {
+      const intervalId = setInterval(() => {
+        setDot((prevDot) => (prevDot.length < 3 ? prevDot + "." : "."));
+      }, 500); //props
 
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, [status === "isLoading" && dot]);
+      return () => {
+        clearInterval(intervalId);
+      };
+    }
+  }, [status, dot]);
 
   if (status === "isSuccess" || status === "Idle") {
     return (
