@@ -16,7 +16,7 @@ export const ChatContainer = styled.div`
 export const ChatDiv = styled.div`
   height: 100%;
   width: 100%;
-  max-width: 48rem;
+  align-items: center;
   display: flex;
   flex-direction: column;
   color: #f3f4f6;
