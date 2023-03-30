@@ -1,19 +1,36 @@
 import { useRecoilState } from "recoil";
-import { searchSelector, chatNumber, chatHistoryAtom } from "@/lib/chatHistory";
+import { searchAtom } from "@/lib/chatHistory";
 import { useQuery } from "@tanstack/react-query";
 import { chatBot } from "@/api/chatbot";
 import { useState, useEffect } from "react";
 
 export const useChatHistory = (question: string) => {
-  const [isClicked, setIsClicked] = useState(false);
-  const [search, setSearch] = useRecoilState(searchSelector(question));
-  const [_chatNumber, setChatNumber] = useRecoilState(chatNumber);
-  console.log(search);
-  const { data, isLoading, fetchStatus } = useQuery({
+  const [isClicked, setIsClicked] = useState<boolean>(false);
+  const [chat, setChat] = useRecoilState(searchAtom);
+  const { data, fetchStatus } = useQuery({
     queryKey: ["chat"],
     queryFn: () => chatBot(question),
     enabled: isClicked,
   });
+  console.log(data, question);
+  useEffect(() => {
+    if (isClicked) {
+      setIsClicked(false);
+      setChat((prev) => {
+        return {
+          ...prev,
+          chatHistory: {
+            ...prev.chatHistory,
+            [prev.activeChatBox]: [
+              ...prev.chatHistory[prev.activeChatBox],
+              question,
+              data,
+            ],
+          },
+        };
+      });
+    }
+  }, [data]);
 
   return {
     data,

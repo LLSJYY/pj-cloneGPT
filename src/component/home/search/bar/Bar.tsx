@@ -9,8 +9,6 @@ import {
 import { useRef, useState, useEffect } from "react";
 import Footer from "@/component/footer/Footer";
 import SearchButton from "../button/Button";
-import { chatAtom } from "@/lib/chatHistory";
-import { useRecoilState } from "recoil";
 import { useChatHistory } from "@/utils/hooks/useChathistory";
 interface IProps {
   storybookProps: IStorybookProps;
@@ -25,7 +23,12 @@ interface IStatus {
 
 const SearchBar = (props: IProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
-
+  const { setIsClicked, fetchStatus } = useChatHistory(
+    inputRef.current?.value as string
+  );
+  const btnOnClickHandler = () => {
+    setIsClicked(true);
+  };
   return (
     <Wrapper>
       <Form>
@@ -33,7 +36,12 @@ const SearchBar = (props: IProps) => {
           <Inputliner />
           <InputStyle>
             <Input ref={inputRef} />
-            <SearchButton {...props} inputRef={inputRef} />
+            <SearchButton
+              {...props}
+              fetchStatus={fetchStatus}
+              onClickHandler={btnOnClickHandler}
+              inputRef={inputRef}
+            />
           </InputStyle>
         </InputWrapper>
       </Form>

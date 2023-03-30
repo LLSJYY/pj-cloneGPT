@@ -10,10 +10,10 @@ const CheckChatHistory = (props: any) => {
   const [chat, setChat] = useRecoilState(searchAtom);
 
   const { activeChatBox, chatHistory } = chat;
-  if (chatHistory[activeChatBox].length === 0) {
+  if (chatHistory[activeChatBox].length < 2) {
     return <NewSearch {...props} />;
   }
-  if (chatHistory[activeChatBox].length !== 0) {
+  if (chatHistory[activeChatBox].length > 1) {
     return <Older {...props} activeChatBox={activeChatBox} />;
   }
   return <></>;

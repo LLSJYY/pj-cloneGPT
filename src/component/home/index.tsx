@@ -9,6 +9,7 @@ export const Chat = (props: any) => {
           <CheckChatHistory />
           <EmptySpace />
         </ChatDiv>
+        <SearchBar {...props} />
       </ChatContainer>
     </Wrapper>
   );
