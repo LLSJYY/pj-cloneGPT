@@ -50,16 +50,16 @@ const SearchBar = (props: IProps) => {
   };
 
   useEffect(() => {
-    if (!isLoading) {
-      setIsClicked(false);
-      if (isSuccess && data) {
-        setChat({ isNewChatbox: false, chatBoxId: data });
-      }
-      if (isError) {
-        console.log("Error");
-      }
+    setIsClicked(false);
+
+    if (isSuccess && data) {
+      console.log(data);
+      setChat({ isNewChatbox: false, chatBoxId: data });
     }
-  }, [isLoading]); //Todo 분기처리
+    if (isError) {
+      console.log("Error");
+    }
+  }, [isLoading && data]); //Todo 분기처리
 
   return (
     <Wrapper>
