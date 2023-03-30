@@ -1,18 +1,15 @@
 import SearchBar from "@/component/home/search/bar/Bar";
-import Result from "@/component/home/chat";
-import ScrollToBottom from "react-scroll-to-bottom";
 import styled from "styled-components";
-import Image from "next/image";
 import SideBar from "@/component/sidebar";
-import ChatBoxes from "@/component/sidebar/newChat";
-const HomeWrapper = styled.div`
+import { Chat } from "@/component/home";
+const Wrapper = styled.div`
   width: 100vw;
   height: 100vh;
   position: relative;
   background-color: #fff;
   overflow: hidden;
 `;
-const HomeWrapper2 = styled.div`
+const HomePadding = styled.div`
   display: flex;
   height: 100%;
   flex: 1;
@@ -34,12 +31,12 @@ const HomeMain = styled.main`
   flex: 1;
 `;
 
-const HomeDiv = styled.div`
+const HomeChatWrapper = styled.div`
   flex: 1;
   overflow: auto;
 `;
 
-const HomeDiv2 = styled.div`
+const HomeChat = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,16 +45,7 @@ const HomeDiv2 = styled.div`
   background-color: rgba(52, 53, 65);
 `;
 
-const ChatInfo = styled.div`
-  height: 100%;
-  width: 100%;
-  max-width: 48rem;
-  display: flex;
-  flex-direction: column;
-  color: #f3f4f6;
-`;
-
-export const SeperateDiv = styled.div`
+export const EmptySpace = styled.div`
   width: 100%;
   height: 32px;
   flex-shrink: 0;
@@ -69,20 +57,14 @@ export const SeperateDiv = styled.div`
 
 const Home = (props: any) => {
   return (
-    <HomeWrapper>
-      <HomeWrapper2>
+    <Wrapper>
+      <HomePadding>
         <HomeMain>
-          <HomeDiv>
-            <HomeDiv2>
-              <Result />
-              <SeperateDiv />
-            </HomeDiv2>
-            <SearchBar {...props} />
-          </HomeDiv>
+          <Chat />
         </HomeMain>
-      </HomeWrapper2>
+      </HomePadding>
       <SideBar />
-    </HomeWrapper>
+    </Wrapper>
   );
 };
 

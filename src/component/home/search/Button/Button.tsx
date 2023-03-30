@@ -3,9 +3,9 @@ import Image from "next/image";
 import plane2 from "@/asset/search-plane3.png";
 import { Button, Span } from "./Button.styles";
 interface IProps {
-  fetchStatus: string; // type Error
-  onClickHandler: (e: any) => void;
+  fetchStatus: string;
   imageStyle?: IImageStyle;
+  onClickHandler: () => void;
   inputRef: RefObject<HTMLInputElement>;
 }
 interface IImageStyle {
@@ -19,7 +19,6 @@ const SearchButton = (props: IProps) => {
   const { fetchStatus, imageStyle, onClickHandler, inputRef } = props;
   const imageSrc = imageStyle?.src ?? plane2;
   const [dot, setDot] = useState<string>("");
-  console.log(fetchStatus);
 
   useEffect(() => {
     if (fetchStatus === "fetching") {
@@ -35,7 +34,7 @@ const SearchButton = (props: IProps) => {
 
   if (fetchStatus === "idle") {
     return (
-      <Button onClick={() => onClickHandler(inputRef?.current?.value)}>
+      <Button onClick={onClickHandler}>
         <Image
           alt="plane"
           width={imageStyle?.width || 16}

@@ -1,39 +1,23 @@
-import { atom } from "recoil";
-
-type TChat = {
-  isNewChatbox: boolean;
-  chatBoxId: string;
-};
+import ChatHistory from "@/component/sidebar/chatHistory/ChatHistory";
+import { atom, selector } from "recoil";
 
 type TChatHistory = {
-  title: string;
-  status: "isLoading" | "isSuccess" | "isError" | "Idle";
-  chatDetail: TChatDetail;
+  keyword: string;
+  result: string | null;
+  activeChatBox: string;
+  chatHistory: TActiveChatBox;
 };
-
-type TChatDetail = {
-  firstChat: string[];
-  totalChat: string[];
+type TActiveChatBox = {
+  [key: string]: string[];
 };
-
-export const chatHistoryAtom = (chatBoxId: string) => {
-  return atom<TChatHistory>({
-    key: `chatBox_${chatBoxId}`,
-    default: {
-      title: chatBoxId,
-      status: "Idle",
-      chatDetail: {
-        firstChat: [], // [FisrtQuestion,FirstAnswer]
-        totalChat: [], // [Q,A,Q,A,...]
-      },
-    },
-  });
-};
-
-export const chatAtom = atom<TChat>({
-  key: `chat`,
+export const searchAtom = atom<TChatHistory>({
+  key: "searchAtom",
   default: {
-    isNewChatbox: true,
-    chatBoxId: "",
+    keyword: "",
+    result: null,
+    activeChatBox: "chatBox_0",
+    chatHistory: {
+      chatBox_0: [],
+    },
   },
 });
