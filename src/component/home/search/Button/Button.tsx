@@ -3,8 +3,6 @@ import Image from "next/image";
 import plane2 from "@/asset/search-plane3.png";
 import { Button, Span } from "./Button.styles";
 interface IProps {
-  fetchStatus: string; // type Error
-  onClickHandler: (e: any) => void;
   imageStyle?: IImageStyle;
   inputRef: RefObject<HTMLInputElement>;
 }

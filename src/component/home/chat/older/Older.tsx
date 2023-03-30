@@ -8,7 +8,7 @@ import {
   TextWrapper,
   Question,
   Answer,
-} from "./Success.styles";
+} from "./Older.styles";
 const Older = ({ chatBoxId }: any) => {
   const [chatHistory, setChatHistory] = useRecoilState(
     chatHistoryAtom(chatBoxId)

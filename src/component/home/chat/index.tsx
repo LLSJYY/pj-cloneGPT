@@ -1,21 +1,22 @@
 import NewSearch from "./new/NewSearch";
-import { chatAtom } from "@/lib/chatHistory";
+import { searchAtom } from "@/lib/chatHistory";
 import { useRecoilState } from "recoil";
 import Older from "./older/Older";
 interface IProps {
   result: any;
 }
 
-const Result = (props: any) => {
-  const [chat, setChat] = useRecoilState(chatAtom);
-  const { isNewChatbox, chatBoxId } = chat;
-  if (isNewChatbox) {
+const CheckChatHistory = (props: any) => {
+  const [chat, setChat] = useRecoilState(searchAtom);
+
+  const { activeChatBox, chatHistory } = chat;
+  if (chatHistory[activeChatBox].length === 0) {
     return <NewSearch {...props} />;
   }
-  if (!isNewChatbox) {
-    return <Older {...props} chatBoxId={chatBoxId} />;
+  if (chatHistory[activeChatBox].length !== 0) {
+    return <Older {...props} activeChatBox={activeChatBox} />;
   }
   return <></>;
 };
 
-export default Result;
+export default CheckChatHistory;
