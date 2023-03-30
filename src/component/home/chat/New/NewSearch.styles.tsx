@@ -1,4 +1,12 @@
 import styled from "styled-components";
+export const ChatInfo = styled.div`
+  height: 100%;
+  width: 100%;
+  max-width: 48rem;
+  display: flex;
+  flex-direction: column;
+  color: #f3f4f6;
+`;
 
 export const ChatGPT = styled.h1`
   font-weight: 600;

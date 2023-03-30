@@ -1,7 +1,7 @@
-import NewSearch from "./New/NewSearch";
+import NewSearch from "./new/NewSearch";
 import { chatAtom } from "@/lib/chatHistory";
 import { useRecoilState } from "recoil";
-import Success from "./Success/Success";
+import Older from "./older/Older";
 interface IProps {
   result: any;
 }
@@ -13,7 +13,7 @@ const Result = (props: any) => {
     return <NewSearch {...props} />;
   }
   if (!isNewChatbox) {
-    return <Success {...props} chatBoxId={chatBoxId} />;
+    return <Older {...props} chatBoxId={chatBoxId} />;
   }
   return <></>;
 };

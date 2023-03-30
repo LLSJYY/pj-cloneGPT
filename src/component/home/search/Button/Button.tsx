@@ -3,7 +3,7 @@ import Image from "next/image";
 import plane2 from "@/asset/search-plane3.png";
 import { Button, Span } from "./Button.styles";
 interface IProps {
-  status: string; // type Error
+  fetchStatus: string; // type Error
   onClickHandler: (e: any) => void;
   imageStyle?: IImageStyle;
   inputRef: RefObject<HTMLInputElement>;
@@ -16,21 +16,24 @@ interface IImageStyle {
 }
 
 const SearchButton = (props: IProps) => {
-  const { status, imageStyle, onClickHandler, inputRef } = props;
+  const { fetchStatus, imageStyle, onClickHandler, inputRef } = props;
   const imageSrc = imageStyle?.src ?? plane2;
   const [dot, setDot] = useState<string>("");
+  console.log(fetchStatus);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setDot((prevDot) => (prevDot.length < 3 ? dot + "." : "."));
-    }, 500); //props
+    if (fetchStatus === "fetching") {
+      const intervalId = setInterval(() => {
+        setDot((prevDot) => (prevDot.length < 3 ? prevDot + "." : "."));
+      }, 500); //props
 
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, [status === "isLoading" && dot]);
+      return () => {
+        clearInterval(intervalId);
+      };
+    }
+  }, [fetchStatus, dot]);
 
-  if (status === "isSuccess" || status === "Idle") {
+  if (fetchStatus === "idle") {
     return (
       <Button onClick={() => onClickHandler(inputRef?.current?.value)}>
         <Image
@@ -42,8 +45,7 @@ const SearchButton = (props: IProps) => {
       </Button>
     );
   }
-
-  if (status === "isLoading") {
+  if (fetchStatus === "fetching") {
     return (
       <Button>
         <Span>{dot}</Span>

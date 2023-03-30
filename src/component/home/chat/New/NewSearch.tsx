@@ -10,6 +10,7 @@ import {
   InfoCategory,
   Category,
   ItemBox,
+  ChatInfo,
 } from "./NewSearch.styles";
 interface IProps<T> {
   storybookProps: T;
@@ -46,7 +47,7 @@ const NewSearch = (props: IProps<IMockData<ICategoiesData>>) => {
   };
 
   return (
-    <>
+    <ChatInfo>
       <ChatGPT>Chat GPT</ChatGPT>
       <InfoBox>
         {storybookProps.categoriesData.map((category: string, idx: number) => {
@@ -60,7 +61,7 @@ const NewSearch = (props: IProps<IMockData<ICategoiesData>>) => {
           );
         })}
       </InfoBox>
-    </>
+    </ChatInfo>
   );
 };
 

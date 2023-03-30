@@ -74,10 +74,8 @@ const Home = (props: any) => {
         <HomeMain>
           <HomeDiv>
             <HomeDiv2>
-              <ChatInfo>
-                <Result />
-                <SeperateDiv />
-              </ChatInfo>
+              <Result />
+              <SeperateDiv />
             </HomeDiv2>
             <SearchBar {...props} />
           </HomeDiv>
