@@ -8,11 +8,11 @@ import {
 } from "./Bar.styles";
 import { useRef, useState, useEffect } from "react";
 import { chatBot } from "@/api/chatbot";
-import { useApi } from "@/utils/hooks/useApi";
 import Footer from "@/component/footer/Footer";
 import SearchButton from "../button/Button";
 import { chatAtom } from "@/lib/chatHistory";
 import { useRecoilState } from "recoil";
+import { useQuery } from "@tanstack/react-query";
 interface IProps {
   storybookProps: IStorybookProps;
 }
@@ -28,38 +28,20 @@ const SearchBar = (props: IProps) => {
   const [isClicked, setIsClicked] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const [chat, setChat] = useRecoilState(chatAtom);
-  const fetchChatBot = async () => {
-    const res = await chatBot(inputRef?.current?.value as string);
-    return res;
-  };
 
-  const { isError, isSuccess, isLoading, data } = useApi<string>(
-    fetchChatBot,
-    isClicked
-  );
-  const { storybookProps = { state: { isError, isSuccess, isLoading } } } =
-    props;
-
-  const State =
-    Object.keys(storybookProps.state).find(
-      (key) => storybookProps.state[key]
-    ) || "Idle";
+  const { data, isLoading, fetchStatus } = useQuery({
+    queryKey: ["chat"],
+    queryFn: () => chatBot(inputRef?.current?.value as string),
+    enabled: isClicked,
+  });
 
   const onClickHandler = () => {
     setIsClicked(true);
   };
 
   useEffect(() => {
-    if (!isLoading) {
-      setIsClicked(false);
-      if (isSuccess && data) {
-        setChat({ isNewChatbox: false, chatBoxId: data });
-      }
-      if (isError) {
-        console.log("Error");
-      }
-    }
-  }, [isLoading]); //Todo 분기처리
+    setIsClicked(false);
+  }, [isClicked && fetchStatus]);
 
   return (
     <Wrapper>
@@ -71,7 +53,7 @@ const SearchBar = (props: IProps) => {
             <SearchButton
               {...props}
               inputRef={inputRef}
-              status={State}
+              fetchStatus={fetchStatus}
               onClickHandler={onClickHandler}
             />
           </InputStyle>
