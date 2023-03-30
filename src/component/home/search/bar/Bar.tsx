@@ -29,20 +29,6 @@ const SearchBar = (props: IProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [chat, setChat] = useRecoilState(chatAtom);
 
-  const { data, isLoading, fetchStatus } = useQuery({
-    queryKey: ["chat"],
-    queryFn: () => chatBot(inputRef?.current?.value as string),
-    enabled: isClicked,
-  });
-
-  const onClickHandler = () => {
-    setIsClicked(true);
-  };
-
-  useEffect(() => {
-    setIsClicked(false);
-  }, [isClicked && fetchStatus]);
-
   return (
     <Wrapper>
       <Form>

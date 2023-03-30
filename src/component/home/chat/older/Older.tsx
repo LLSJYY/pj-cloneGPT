@@ -9,7 +9,7 @@ import {
   Question,
   Answer,
 } from "./Success.styles";
-const Success = ({ chatBoxId }: any) => {
+const Older = ({ chatBoxId }: any) => {
   const [chatHistory, setChatHistory] = useRecoilState(
     chatHistoryAtom(chatBoxId)
   );
@@ -27,5 +27,4 @@ const Success = ({ chatBoxId }: any) => {
     </Wrapper>
   );
 };
-
-export default Success;
+export default Older;
