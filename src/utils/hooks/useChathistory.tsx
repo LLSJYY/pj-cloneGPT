@@ -7,12 +7,13 @@ import { useState, useEffect } from "react";
 export const useChatHistory = (question: string) => {
   const [isClicked, setIsClicked] = useState<boolean>(false);
   const [chat, setChat] = useRecoilState(searchAtom);
+  const { activeChatBox, chatHistory } = chat;
+  const propmtQuestion = `${chatHistory[activeChatBox].join(",")}${question}`;
   const { data, fetchStatus } = useQuery({
     queryKey: ["chat"],
-    queryFn: () => chatBot(question),
+    queryFn: () => chatBot(propmtQuestion),
     enabled: isClicked,
   });
-  console.log(data, question);
   useEffect(() => {
     if (isClicked) {
       setIsClicked(false);
