@@ -1,17 +1,21 @@
 import styled from "styled-components";
-
+type TInner = {
+  index: number;
+};
 export const Wrapper = styled.div`
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   color: #f3f4f6;
+  overflow: scroll;
 `;
-export const Inner = styled.div`
+export const Inner = styled.div<TInner>`
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: rgba(68, 70, 84, 1);
+  background-color: ${(props) =>
+    props.index % 2 !== 0 ? "rgba(68, 70, 84, 1)" : "rgba(52,53,65)"};
   color: #e2e8f0;
 `;
 

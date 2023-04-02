@@ -9,7 +9,7 @@ export const useChatHistory = (question: string) => {
   const [chat, setChat] = useRecoilState(searchAtom);
   const { activeChatBox, chatHistory } = chat;
   const propmtQuestion = `${chatHistory[activeChatBox].join(",")}${question}`;
-  const { data, fetchStatus } = useQuery({
+  const { data, fetchStatus, status } = useQuery({
     queryKey: ["chat"],
     queryFn: () => chatBot(propmtQuestion),
     enabled: isClicked,
@@ -32,7 +32,7 @@ export const useChatHistory = (question: string) => {
       });
     }
   }, [data]);
-
+  console.log(data, fetchStatus, status);
   return {
     data,
     fetchStatus,
