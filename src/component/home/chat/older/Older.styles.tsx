@@ -15,7 +15,7 @@ export const Inner = styled.div<TInner>`
   flex-direction: column;
   width: 100%;
   background-color: ${(props) =>
-    props.index % 2 === 0 ? "rgba(68, 70, 84, 1)" : "rgba(52,53,65)"};
+    props.index % 2 !== 0 ? "rgba(68, 70, 84, 1)" : "rgba(52,53,65)"};
   color: #e2e8f0;
 `;
 

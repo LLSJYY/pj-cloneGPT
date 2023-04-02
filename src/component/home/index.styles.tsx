@@ -14,7 +14,7 @@ export const ChatContainer = styled.div`
 `;
 
 export const ChatDiv = styled.div`
-  height: 100%;
+  height: calc(100% - 5rem);
   width: 100%;
   align-items: center;
   display: flex;
