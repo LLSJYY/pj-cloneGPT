@@ -7,6 +7,9 @@ export const OlderChat = () => {
   const { activeChatBox, chatHistory } = chat;
   const chatArray = chatHistory[activeChatBox];
 
+  function createAnswer(answer: string) {
+    return { __html: answer };
+  }
   return (
     <>
       {chatArray.map((el, index) => {
@@ -32,7 +35,10 @@ export const OlderChat = () => {
                 <ChatBoxWrapper>
                   <ChatBox>
                     <TextWrapper>
-                      <Answer key={el}>{el}</Answer>
+                      <Answer
+                        key={el}
+                        dangerouslySetInnerHTML={createAnswer(el)}
+                      />
                     </TextWrapper>
                   </ChatBox>
                 </ChatBoxWrapper>

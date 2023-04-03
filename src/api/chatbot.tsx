@@ -33,7 +33,7 @@ export const GPTTURBO = async (data: string) => {
         {
           role: "user",
           content:
-            "If I ask you something related to computer language, please answer in code block format",
+            "If I ask you something related to computer language, please answer in <code> ",
         },
         {
           role: "user",

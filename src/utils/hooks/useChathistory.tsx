@@ -14,7 +14,7 @@ export const useChatHistory = (question: string) => {
     queryFn: () => GPTTURBO(propmtQuestion),
     enabled: isClicked,
   });
-  console.log(data.split(":"));
+  console.log(data);
   useEffect(() => {
     if (isClicked) {
       setIsClicked(false);
