@@ -1,7 +1,7 @@
 import { useRecoilState } from "recoil";
 import { searchAtom } from "@/lib/chatHistory";
 import { useQuery } from "@tanstack/react-query";
-import { chatBot } from "@/api/chatbot";
+import { chatBot, GPTTURBO } from "@/api/chatbot";
 import { useState, useEffect } from "react";
 
 export const useChatHistory = (question: string) => {
@@ -11,9 +11,10 @@ export const useChatHistory = (question: string) => {
   const propmtQuestion = `${chatHistory[activeChatBox].join(",")}${question}`;
   const { data, fetchStatus, status } = useQuery({
     queryKey: ["chat"],
-    queryFn: () => chatBot(propmtQuestion),
+    queryFn: () => GPTTURBO(propmtQuestion),
     enabled: isClicked,
   });
+  console.log(data);
   useEffect(() => {
     if (isClicked) {
       setIsClicked(false);
@@ -32,7 +33,6 @@ export const useChatHistory = (question: string) => {
       });
     }
   }, [data]);
-  console.log(data, fetchStatus, status);
   return {
     data,
     fetchStatus,
