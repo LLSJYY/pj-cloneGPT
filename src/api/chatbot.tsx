@@ -23,3 +23,38 @@ export const chatBot = async (data: string) => {
   );
   return res.data.choices[0].text;
 };
+
+export const GPTTURBO = async (data: string) => {
+  const res = await axios.post(
+    "https://api.openai.com/v1/chat/completions",
+    {
+      model: "gpt-3.5-turbo",
+      messages: [
+        {
+          role: "user",
+          content:
+            "If I ask you something related to computer language, please answer in code block format",
+        },
+        {
+          role: "user",
+          content:
+            "If the questions I asked have priority or order, please return them to <ol><li></li></ol> format ",
+        },
+        { role: "user", content: data },
+      ],
+    },
+    {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization:
+          "Bearer " + String(process.env.NEXT_PUBLIC_OPENAI_API_KEY),
+      },
+    }
+  );
+  const text = res.data.choices[0].message.content;
+
+  if (text === undefined) {
+    throw new Error("Failed to generate response");
+  }
+  return text;
+};
