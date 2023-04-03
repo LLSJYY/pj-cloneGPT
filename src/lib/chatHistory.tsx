@@ -15,9 +15,7 @@ export const searchAtom = atom<TChatHistory>({
   default: {
     keyword: "",
     result: null,
-    activeChatBox: "chatBox_0",
-    chatHistory: {
-      chatBox_0: [],
-    },
+    activeChatBox: "",
+    chatHistory: {},
   },
 });

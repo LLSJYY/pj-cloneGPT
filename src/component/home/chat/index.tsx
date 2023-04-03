@@ -8,8 +8,11 @@ interface IProps {
 
 const CheckChatHistory = (props: any) => {
   const [chat, setChat] = useRecoilState(searchAtom);
-
   const { activeChatBox, chatHistory } = chat;
+
+  if (!chatHistory[activeChatBox]) {
+    return <NewSearch {...props} />;
+  }
   if (chatHistory[activeChatBox].length < 2) {
     return <NewSearch {...props} />;
   }

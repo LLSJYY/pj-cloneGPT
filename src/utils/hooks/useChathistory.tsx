@@ -8,13 +8,12 @@ export const useChatHistory = (question: string) => {
   const [isClicked, setIsClicked] = useState<boolean>(false);
   const [chat, setChat] = useRecoilState(searchAtom);
   const { activeChatBox, chatHistory } = chat;
-  const propmtQuestion = `${chatHistory[activeChatBox].join(",")}${question}`;
+  const propmtQuestion = `${chatHistory[activeChatBox]?.join(",")}${question}`;
   const { data, fetchStatus, status } = useQuery({
     queryKey: ["chat"],
     queryFn: () => GPTTURBO(propmtQuestion),
     enabled: isClicked,
   });
-  console.log(data);
   useEffect(() => {
     if (isClicked) {
       setIsClicked(false);
