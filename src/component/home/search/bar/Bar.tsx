@@ -9,7 +9,7 @@ import {
 import { useRef, useState, useEffect } from "react";
 import Footer from "@/component/footer/Footer";
 import SearchButton from "../button/Button";
-import { useChatHistory } from "@/utils/hooks/useChathistory";
+import { useChatHistory } from "@/utils/hooks/useChatHistory";
 interface IProps {
   storybookProps: IStorybookProps;
 }
