@@ -37,12 +37,13 @@ pj-cloneGPT/src
 - Demo 사진
 <img width="654" alt="image" src="https://user-images.githubusercontent.com/96014828/229769595-8b5a6aba-324d-4e13-8b3d-293e98aa11b6.png">
 
-## 출력의 단순화
+## 응답값 개선
 
-해당 모델에 추가된 기능 role과 content를 미리 적용하여, 
+해당 모델에 추가된 기능 role과 content를 미리 설정하여, 
 어떤 요청이 특정 형태의 응답이 반환될 경우 정해진 형식의 chat 으로 나타납니다.
 현재 구현된 것은 개발코드, 순서가 있는 응답값입니다.
-예를 들자면, 계란을 삶는 방법을 순서대로 알려줘 라는 요청이 있을경우 ol,li tag로 감싸진 후 출력되어 api 응답값을 후처리를 하지 않아도 됩니다
+
+예를 들자면, 계란을 삶는 방법을 순서대로 알려줘 라는 요청이 있을경우 응답값이 ol,li tag로 감싸진 채로 제공됩니다.
 
 
 ## 여러개의 채팅
@@ -52,5 +53,11 @@ sideBar의 chatBox를 여러개를 구성하여 관심사 별로 진행할 수 �
 chatbox_0 => 코드에 관한 chat 
 chatbox_1 => 요리에 관한 chat 
 ```
+
+### 이슈 및 해결방법
+- 모델 업그레이드 [gpt model 업그레이드 관한 Issue & PR](https://github.com/LLSJYY/pj-cloneGPT/issues/25)
+
+평소 사용하던 인공지능 챗이 제공하던  성능이 많이 떨어졌습니다. 
+
 
 
