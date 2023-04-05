@@ -1,6 +1,6 @@
 import { OlderChat } from ".";
 import { Wrapper } from "./Older.styles";
-const Older = ({ chatBoxId }: any) => {
+const Older = () => {
   return (
     <Wrapper>
       <OlderChat />
