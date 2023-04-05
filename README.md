@@ -2,7 +2,13 @@
 
 ### 프로젝트 개요
 
-openAI를 이용한 ChatGPT 사이트를 클론한 프로젝트입니다.
+ openAI model gpt-3.5-turbo을 사용한 인공지능 채팅 웹입니다.
+### Demo 영상 
+
+
+https://user-images.githubusercontent.com/96014828/230020212-4bdb6b43-17c2-4442-a6a3-cd49f8d43c57.mp4
+
+
 
 ### 기술 스택
 
