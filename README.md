@@ -4,10 +4,10 @@
 
  openAI model gpt-3.5-turbo을 사용한 인공지능 채팅 웹입니다.
 ### Demo 영상 
-
-
 https://user-images.githubusercontent.com/96014828/230020212-4bdb6b43-17c2-4442-a6a3-cd49f8d43c57.mp4
 
+### Demo 사진
+<img width="654" alt="image" src="https://user-images.githubusercontent.com/96014828/229769595-8b5a6aba-324d-4e13-8b3d-293e98aa11b6.png">
 
 
 ### 기술 스택
@@ -40,10 +40,7 @@ pj-cloneGPT/src
 ### 💻주요기능
  해당 프로젝트는 openAI model gpt-3.5-turbo을 사용한 인공지능 채팅 웹입니다.
  
-- Demo 사진
-<img width="654" alt="image" src="https://user-images.githubusercontent.com/96014828/229769595-8b5a6aba-324d-4e13-8b3d-293e98aa11b6.png">
-
-## 응답값 개선
+## 다양한 Form의 응답값 
 
 해당 모델에 추가된 기능 role과 content를 미리 설정하여, 
 어떤 요청이 특정 형태의 응답이 반환될 경우 정해진 형식의 chat 으로 나타납니다.  
