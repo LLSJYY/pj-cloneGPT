@@ -15,37 +15,34 @@ export const OlderChat = () => {
       {chatArray.map((el, index) => {
         if (index % 2 === 0) {
           return (
-            <>
-              <Inner index={index}>
-                <ChatBoxWrapper>
-                  <ChatBox>
-                    <TextWrapper>
-                      <Question key={el}>{el}</Question>
-                    </TextWrapper>
-                  </ChatBox>
-                </ChatBoxWrapper>
-              </Inner>
-            </>
+            <Inner key={`question-${index}`} index={index}>
+              <ChatBoxWrapper>
+                <ChatBox>
+                  <TextWrapper>
+                    <Question>{el}</Question>
+                  </TextWrapper>
+                </ChatBox>
+              </ChatBoxWrapper>
+            </Inner>
           );
         }
         if (index % 2 === 1) {
           return (
-            <>
-              <Inner index={index}>
-                <ChatBoxWrapper>
-                  <ChatBox>
-                    <TextWrapper>
-                      <Answer
-                        key={el}
-                        dangerouslySetInnerHTML={createAnswer(el)}
-                      />
-                    </TextWrapper>
-                  </ChatBox>
-                </ChatBoxWrapper>
-              </Inner>
-            </>
+            <Inner key={`answer-${index}`} index={index}>
+              <ChatBoxWrapper>
+                <ChatBox>
+                  <TextWrapper>
+                    <Answer
+                      key={"asd"}
+                      dangerouslySetInnerHTML={createAnswer(el)}
+                    />
+                  </TextWrapper>
+                </ChatBox>
+              </ChatBoxWrapper>
+            </Inner>
           );
         }
+        return <div key={"error"}>error</div>;
       })}
     </>
   );
