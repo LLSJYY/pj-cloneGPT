@@ -37,7 +37,7 @@ pj-cloneGPT/src
 
 위의 디렉토리 구조는 pj-cloneGPT 레포지토리의 파일 및 폴더 구조와 간략한 설명글입니다.
 
-### 주요기능
+### 💻주요기능
  해당 프로젝트는 openAI model gpt-3.5-turbo을 사용한 인공지능 채팅 웹입니다.
  
 - Demo 사진
@@ -60,8 +60,8 @@ chatbox_0 => 코드에 관한 chat
 chatbox_1 => 요리에 관한 chat 
 ```
 
-### 이슈 및 해결방법
-- 모델 업그레이드 [gpt model 업그레이드 관한 Issue & PR](https://github.com/LLSJYY/pj-cloneGPT/issues/25)
+### 💻이슈 및 해결방법
+## 모델 업그레이드 [gpt model 업그레이드 관한 Issue & PR](https://github.com/LLSJYY/pj-cloneGPT/issues/25)
 
 기존에 사용했던 text-davinci-003 모델이 특정 사이트에서 제공하던 인공지능 챗보다 성능이 많이 떨어졌습니다.  
 속도적인 부분은 많이 빨랐으나, 신뢰도가 많이 떨어지는 응답값의 빈도가 높아 유효성검사를 진행해야만 했습니다.
@@ -79,6 +79,26 @@ chatbox_1 => 요리에 관한 chat
 
 해결책으로 role,content 정보를 미리 삽입하여 특정 응답값이라면 미리셋팅된 태그로 감싸진 응답값을 반환하게 설정하였습니다.
 현재는 dangerousSetInnerHTML 을 사용하여 api 응답값을 바로 삽입하여 2가지 과정이 생략된 상태여서 속도문제도 원활하게 해결되었습니다.
+
+## Type Form 재사용 [Type 재사용 PR](https://github.com/LLSJYY/pj-cloneGPT/pull/17)
+<img width="201" alt="image" src="https://user-images.githubusercontent.com/96014828/230063512-61519dce-8587-42f0-b3c5-a76e15352e0e.png">
+
+위 이미지와 같이,img + Text 의 형식을 가진 기능에서 같은 로직을 사용하였지만 type같은경우 
+같은 Type이지만 key값만 바꿔 사용하는것이 불편하여 개선의 필요성을 느꼈습니다
+아래와 같이 key만 커스텀해서 사용할 수 있게 모듈화 하였습니다.
+
+```
+type Data<T extends string> = `${T}Data`;
+type Img<T extends string> = `${T}Img`;
+type Detail<T extends string> = `${T}Detail`;
+
+export type IMockData<T> = {
+  [key: Data<string>]: string[];
+  [key: Img<string>]: string[];
+  [key: Detail<string>]: T;
+};
+
+```
 
 
 
