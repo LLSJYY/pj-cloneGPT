@@ -100,7 +100,10 @@ export type IMockData<T> = {
 
 ```
 
+## Flash of unstyled content [FOUC](https://github.com/LLSJYY/pj-cloneGPT/issues/33)
 
+Next.js SSR (Pre Rendering)에서 <strong>css-in-js 인 styled-component를 이용하여 생긴 문제</strong>입니다. 
+styled-component가 SSR을 지원하고 있지만, 다른 좋은 해결방법이 있을것 같아 보류중입니다.
 
 
 
