@@ -32,7 +32,7 @@ const OptionBox = (props: any) => {
     <>
       {optionsData.map((option: string, index: number) => (
         <Option key={option}>
-          <Image alt={option} src={optionsImg[index]} />
+          <Image alt={option} src={optionsImg[index]} width={16} height={16} />
           {optionsDetail[option]}
         </Option>
       ))}

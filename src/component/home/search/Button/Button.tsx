@@ -1,12 +1,12 @@
-import React, { useState, useEffect, RefObject } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import plane2 from "@/asset/search-plane3.png";
+import plane2 from "@/asset/search-plane2.svg";
 import { Button, Span } from "./Button.styles";
 interface IProps {
   fetchStatus: string;
   imageStyle?: IImageStyle;
   onClickHandler: () => void;
-  inputRef: RefObject<HTMLInputElement>;
+  status: string;
 }
 interface IImageStyle {
   width?: number;
@@ -16,8 +16,7 @@ interface IImageStyle {
 }
 
 const SearchButton = (props: IProps) => {
-  const { fetchStatus, imageStyle, onClickHandler, inputRef } = props;
-  const imageSrc = imageStyle?.src ?? plane2;
+  const { fetchStatus, onClickHandler } = props;
   const [dot, setDot] = useState<string>("");
 
   useEffect(() => {
@@ -35,12 +34,7 @@ const SearchButton = (props: IProps) => {
   if (fetchStatus === "idle") {
     return (
       <Button onClick={onClickHandler}>
-        <Image
-          alt="plane"
-          width={imageStyle?.width || 16}
-          height={imageStyle?.width || 16}
-          src={imageSrc}
-        />
+        <Image alt="plane" width={16} height={16} src={plane2} />
       </Button>
     );
   }
