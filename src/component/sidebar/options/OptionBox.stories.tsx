@@ -1,4 +1,8 @@
-import Image from "next/image";
+import React from "react";
+import type { Meta, Story } from "@storybook/react";
+import { IMockData } from "@/utils/types/Types";
+import OptionBox from "./OptionBox";
+
 import { Option } from "./OptionBox.style";
 import Clear from "@/asset/Clear.svg";
 import Upgrade from "@/asset/Upgrade.svg";
@@ -6,7 +10,7 @@ import Update from "@/asset/Update.svg";
 import Logout from "@/asset/Logout.svg";
 import Light from "@/asset/Light.svg";
 import { OPTIONS } from "@/constant/sideBarOption";
-import { IMockData } from "@/utils/types/Types";
+type OptionBoxProps = React.ComponentProps<typeof OptionBox>;
 interface IOptionsData {
   [key: string]: string;
 }
@@ -22,22 +26,20 @@ const mockData: IMockData<IOptionsData> = {
     Light: OPTIONS.LIGHT,
   },
 };
+export default {
+  title: "sidebar/Option",
+  component: OptionBox,
+  argTypes: {},
+  backgrounds: {
+    default: "normal",
+  },
+} as Meta<OptionBoxProps>;
 
-const OptionBox = (props: any) => {
-  const { storybookProps = mockData } = props;
-
-  const { optionsData, optionsImg, optionsDetail } = storybookProps;
-
-  return (
-    <>
-      {optionsData.map((option: string, index: number) => (
-        <Option key={option}>
-          <Image alt={option} src={optionsImg[index]} width={16} height={16} />
-          {optionsDetail[option]}
-        </Option>
-      ))}
-    </>
-  );
+const Template: Story<OptionBoxProps> = (args) => {
+  console.log(args);
+  return <OptionBox {...args} />;
 };
-
-export default OptionBox;
+export const Default = Template.bind({});
+Default.args = {
+  storybookProps: mockData,
+};
