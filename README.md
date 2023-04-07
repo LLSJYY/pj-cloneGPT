@@ -1,9 +1,13 @@
 # 💻cloneGPT
 
-### 프로젝트 개요
+### 💻프로젝트 개요
 
  openAI model gpt-3.5-turbo을 사용한 인공지능 채팅 웹입니다.
-### Demo 영상 
+
+### 💻 회고 [노션](https://glistening-education-ab4.notion.site/OpenAI-project-f7f522cae1014e079051335a15e85789)
+ 프로젝트를 진행하면서 어려웠던 점이나 추가로 적고싶었던 것들을 적었습니다.
+
+### 💻Demo 영상 
 https://user-images.githubusercontent.com/96014828/230020212-4bdb6b43-17c2-4442-a6a3-cd49f8d43c57.mp4
 
 ### Demo 사진
@@ -97,13 +101,8 @@ export type IMockData<T> = {
 
 ```
 
-## Flash of unstyled content [FOUC](https://github.com/LLSJYY/pj-cloneGPT/issues/33)
-
-Next.js SSR (Pre Rendering)에서 <strong>css-in-js 인 styled-component를 이용하여 생긴 문제</strong>입니다. 
-styled-component가 SSR을 지원하고 있지만, 다른 좋은 해결방법이 있을것 같아 보류중입니다.
 
 
-### 회고 [노션](https://glistening-education-ab4.notion.site/OpenAI-project-f7f522cae1014e079051335a15e85789)
 
 
 
