@@ -103,7 +103,7 @@ Next.js SSR (Pre Rendering)에서 <strong>css-in-js 인 styled-component를 이�
 styled-component가 SSR을 지원하고 있지만, 다른 좋은 해결방법이 있을것 같아 보류중입니다.
 
 
-### 회고 [노션](https://www.notion.so/OpenAI-project-f7f522cae1014e079051335a15e85789?pvs=4)
+### 회고 [노션](https://glistening-education-ab4.notion.site/OpenAI-project-f7f522cae1014e079051335a15e85789)
 
 
 
